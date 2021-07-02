@@ -2,7 +2,7 @@ import Head from "next/head";
 import styled from "styled-components";
 import Menu from "../components/menu";
 import { SmoothScrollProvider } from "../src/SmoothScroll.context";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Footer from "../components/footer";
 import PsychSection1 from "../components/psychsection1";
 import PsychSection2 from "../components/psychsection2";
@@ -12,6 +12,13 @@ const psychomotricitePage = () => {
   const [partOneInview, setPartOneInView] = useState(true)
   const [partTwoInview, setPartTwoInView] = useState(false)
   const [partThreeInview, setPartThreeInView] = useState(false)
+  const [loaded, setLoaded] = useState(false)
+
+  useEffect(()=>{
+    
+    setTimeout(()=>setLoaded(true), 500)
+
+  }, [loaded])
 
   return (
     <div>
@@ -19,31 +26,40 @@ const psychomotricitePage = () => {
         <title>Estelle Bétry psychomotricienne Mouriès Alpilles - Psychomotricité - Public - Troubles psychomoteurs - TDAH</title>   
       </Head>
 
-      <SmoothScrollProvider options={{smooth : true, multiplier : 1, smartphone:{smooth : true}, tablet:{smooth:true}}}>
-        <Wrapper data-scroll-container>
-          <div id='super-container'>
-            <div className="menu-container" style={{backgroundColor:`${(partTwoInview ||(partOneInview && partTwoInview)) ? "#28536b" : partOneInview ?"#9f7f92" : partThreeInview ? "#9f7f92" : "#28536b" }`}} data-scroll data-scroll-sticky data-scroll-target="#super-container">
-              <nav>
-                <Menu color="white" backgroundColor={`${(partTwoInview ||(partOneInview && partTwoInview)) ? "#28536b" : partOneInview ?"#9f7f92" : partThreeInview ? "#9f7f92" : "#28536b" }`}/>
-              </nav>
-            </div>
-            <InView as="div" onChange={(inView, entry)=>setPartOneInView(inView)}>
-              <PsychSection1 backgroundColor={`${partTwoInview ? "#28536b":"transparent"}`}/>
-            </InView>
-            
-            <InView as="div" threshold="0.15" onChange={(inView)=>setPartTwoInView(inView)}>
-              <PsychSection2 backgroundColor={`${(partTwoInview ||(partOneInview && partTwoInview)) ? "#28536b" : partOneInview ?"transparent" : partThreeInview ? "#9f7f92" : "#28536b" }`} footerInView = {partThreeInview}/>
-            </InView>
-            
-            <div className="separateur" style={{backgroundColor:`${(partTwoInview ||(partOneInview && partTwoInview)) ? "#28536b" : partOneInview ?"#9f7f92" : partThreeInview ? "#9f7f92" : "#28536b" }`}}/>
-            <InView as="div" threshold="0.15" onChange={(inView)=>setPartThreeInView(inView)}>
-              <Footer color="#9f7f92"/>
-            </InView>
-            
-          </div>
           
-        </Wrapper>   
-      </SmoothScrollProvider>
+      <SmoothScrollProvider options={{smooth : true, multiplier : 1, smartphone:{smooth : true}, tablet:{smooth:true}}}>
+  
+          <Wrapper data-scroll-container>
+          {
+          !loaded 
+          ? <div></div>
+          :
+            <div id='super-container'>
+              <div className="menu-container" style={{backgroundColor:`${(partTwoInview ||(partOneInview && partTwoInview)) ? "#28536b" : partOneInview ?"#9f7f92" : partThreeInview ? "#9f7f92" : "#28536b" }`}} data-scroll data-scroll-sticky data-scroll-target="#super-container">
+                <nav>
+                  <Menu color="white" backgroundColor={`${(partTwoInview ||(partOneInview && partTwoInview)) ? "#28536b" : partOneInview ?"#9f7f92" : partThreeInview ? "#9f7f92" : "#28536b" }`}/>
+                </nav>
+              </div>
+              <InView as="div" onChange={(inView, entry)=>setPartOneInView(inView)}>
+                <PsychSection1 backgroundColor={`${partTwoInview ? "#28536b":"transparent"}`}/>
+              </InView>
+              
+              <InView as="div" threshold="0.15" onChange={(inView)=>setPartTwoInView(inView)}>
+                <PsychSection2 backgroundColor={`${(partTwoInview ||(partOneInview && partTwoInview)) ? "#28536b" : partOneInview ?"transparent" : partThreeInview ? "#9f7f92" : "#28536b" }`} footerInView = {partThreeInview}/>
+              </InView>
+              
+              <div className="separateur" style={{backgroundColor:`${(partTwoInview ||(partOneInview && partTwoInview)) ? "#28536b" : partOneInview ?"#9f7f92" : partThreeInview ? "#9f7f92" : "#28536b" }`}}/>
+              <InView as="div" threshold="0.15" onChange={(inView)=>setPartThreeInView(inView)}>
+                <Footer color="#9f7f92"/>
+              </InView>
+              
+            </div>
+            }
+          </Wrapper>  
+       
+         
+      </SmoothScrollProvider> 
+      
     </div>
   )
 }

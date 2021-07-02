@@ -22,7 +22,7 @@ export default function Home() {
   const size = useWindowSize()
 
   useEffect(()=>{
-    setTimeout(setLoaded(true), 300)
+    setTimeout(()=>setLoaded(true), 500)
   }, [loaded])
 
   return (
@@ -30,13 +30,11 @@ export default function Home() {
       <Head>
         <title>Estelle Bétry psychomotricienne diplomée d'état DE à Mouriès</title>   
       </Head>
-
-      <SmoothScrollProvider options={{smooth : true, multiplier : 1, smartphone:{smooth : true}, tablet:{smooth:true}, firefoxMultiplier: 1000}}>
-      {
+        {
         !loaded 
         ? (<div></div>)
         :
-        (
+      <SmoothScrollProvider options={{smooth : true, multiplier : 1, smartphone:{smooth : true}, tablet:{smooth:true}, firefoxMultiplier: 1000}}>
           <Wrapper >         
             <div className='containerRef' ref={containerRef} data-scroll-speed="1" data-scroll-position="top">
               <div className="menu-container" 
@@ -69,10 +67,8 @@ export default function Home() {
               </InView> 
             </div>
           </Wrapper>
-        )
-      }
       </SmoothScrollProvider>
-      
+      }
       
     </div>
   )

@@ -21,12 +21,15 @@ const ateliers = () => {
   const size = useWindowSize()
 
   useEffect(()=>{
-    setTimeout(setLoaded(true), 300)
+    setTimeout(()=>setLoaded(true), 500)
   }, [loaded])
 
   useEffect(()=>{
-    setImageDimension({width : imageSeparation.current.offsetWidth, height : imageSeparation.current.offsetHeight})
-  }, [size, imageDimension.width, imageDimension.height])
+    if(loaded){
+      setImageDimension({width : imageSeparation.current.offsetWidth, height : imageSeparation.current.offsetHeight})
+    }
+   
+  }, [loaded, size, imageDimension.width, imageDimension.height])
 
   return (
     <div>
@@ -34,41 +37,44 @@ const ateliers = () => {
         <title>Estelle Bétry psychomotricienne Mouriès Alpilles - Psychomotricité - Ateliers - Guidance parentale - Programme BARKLEY - TDAH</title>   
       </Head>
 
-      <SmoothScrollProvider options={{smooth : true, multiplier : 1, smartphone:{smooth : true}, tablet:{smooth:true}}}>
-        <DivWrapper data-scroll-container>
-          <div id="super-container-3">
-            <div className="menu-container" style={{backgroundColor:"#9f7f92"}} data-scroll data-scroll-sticky data-scroll-target="#super-container-3">
-              <nav>
-                <Menu color="white" backgroundColor={"#9f7f92"}/>
-              </nav>
-            </div>
-
-            <AtelierBarkley/>
-
-            <div style={{position:"relative"}}>
-              <div 
-                className="image-separation" 
-                style={{width:`${size.width<745 ? imageDimension.width/2 + "px" : "auto"}`}}
-              >
-                <img src="/images/plaquette.jpg" ref={imageSeparation} style={{transform:`translateX(${imgTranslate? -(imageDimension.width/2)+"px":"0px"})`}} /> 
+      {
+        !loaded 
+        ? <div></div>
+        :
+        <SmoothScrollProvider options={{smooth : true, multiplier : 1, smartphone:{smooth : true}, tablet:{smooth:true}}}>
+          <DivWrapper data-scroll-container>
+            <div id="super-container-3">
+              <div className="menu-container" style={{backgroundColor:"#9f7f92"}} data-scroll data-scroll-sticky data-scroll-target="#super-container-3">
+                <nav>
+                  <Menu color="white" backgroundColor={"#9f7f92"}/>
+                </nav>
               </div>
-              <i className="fas fa-chevron-circle-right fa-3x right" onClick={()=>setImgTranslate(prev=>!prev)} style={{display:`${size.width>745 || imgTranslate ? "none":"block"}`}} />
-              <i className="fas fa-chevron-circle-left fa-3x left"onClick={()=>setImgTranslate(prev=>!prev)} style={{display:`${size.width>745 || !imgTranslate ? "none":"block"}`}} />
 
-            </div>
-            
-            <AtelierRelax/>
+              <AtelierBarkley/>
 
-            <div className="separateur" style={{backgroundColor : `${footerInView? "#9f7f92" : "transparent"}`}}/>
-            <InView threshold="0.9" onChange={(inView, entry)=>setFooterInView(inView) }>
-              <Footer color="#9f7f92"/>
-            </InView>
-            
-          </div> 
-        </DivWrapper>
-      </SmoothScrollProvider>
+              <div style={{position:"relative"}}>
+                <div 
+                  className="image-separation" 
+                  style={{width:`${size.width<745 ? imageDimension.width/2 + "px" : "auto"}`}}
+                >
+                  <img src="/images/plaquette.jpg" ref={imageSeparation} style={{transform:`translateX(${imgTranslate? -(imageDimension.width/2)+"px":"0px"})`}} /> 
+                </div>
+                <i className="fas fa-chevron-circle-right fa-3x right" onClick={()=>setImgTranslate(prev=>!prev)} style={{display:`${size.width>745 || imgTranslate ? "none":"block"}`}} />
+                <i className="fas fa-chevron-circle-left fa-3x left"onClick={()=>setImgTranslate(prev=>!prev)} style={{display:`${size.width>745 || !imgTranslate ? "none":"block"}`}} />
 
-      
+              </div>
+              
+              <AtelierRelax/>
+
+              <div className="separateur" style={{backgroundColor : `${footerInView? "#9f7f92" : "transparent"}`}}/>
+              <InView threshold="0.9" onChange={(inView, entry)=>setFooterInView(inView) }>
+                <Footer color="#9f7f92"/>
+              </InView>
+              
+            </div> 
+          </DivWrapper>
+        </SmoothScrollProvider>
+      }
     </div>
     
   );

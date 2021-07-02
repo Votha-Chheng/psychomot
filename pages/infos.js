@@ -14,6 +14,7 @@ const infosPage = () => {
   const [footerInView, setFooterInView] = useState(false)
   const [section2, setSection2] = useState(false)
   const [section3, setSection3] = useState(false)
+  const [loaded, setLoaded] = useState(false)
 
   const size = useWindowSize()
 
@@ -21,41 +22,51 @@ const infosPage = () => {
   const sectionTitle = useRef(null)
   const title = useRef(null)
 
+  useEffect(()=>{
+    setTimeout(()=>setLoaded(true), 500)
+  }, [loaded])
+
   useEffect(() =>{
-    setTitleWidth(sectionTitle.current.offsetWidth)
-  },[titleWidth, size])
+    if(loaded){
+      setTitleWidth(sectionTitle.current.offsetWidth)
+    }
+    
+  },[titleWidth, size, loaded])
 
   useEffect(() => {
-    gsap.to(trait.current, {
-      x: 0,
-      duration: 1.2,
-      delay : 0.2
-    })
+    if(loaded){
+      gsap.to(trait.current, {
+        x: 0,
+        duration: 1.2,
+        delay : 0.2
+      })
 
-    gsap.to(".section-title", {
-      y: 0,
-      autoAlpha : 1,
-      duration : 0.5,
-      delay : 0.2
-    })
-    gsap.to(".bg-image img", {
-      autoAlpha: 0.5,
-      duration : 0.8,
-      delay : 1
-    })
-    gsap.to(".first", {
-      autoAlpha: 1,
-      duration : 0.5,
-      delay : 0.9
-    })
-    gsap.to(".card-body", {
-      y: 0,
-      autoAlpha : 1,
-      duration : 0.5,
-      delay : 1,
-      stagger : 0.2
-    })
-  },[])
+      gsap.to(".section-title", {
+        y: 0,
+        autoAlpha : 1,
+        duration : 0.5,
+        delay : 0.2
+      })
+      gsap.to(".bg-image img", {
+        autoAlpha: 0.5,
+        duration : 0.8,
+        delay : 1
+      })
+      gsap.to(".first", {
+        autoAlpha: 1,
+        duration : 0.5,
+        delay : 0.9
+      })
+      gsap.to(".card-body", {
+        y: 0,
+        autoAlpha : 1,
+        duration : 0.5,
+        delay : 1,
+        stagger : 0.2
+      })
+    }
+    
+  },[loaded])
 
   useEffect(() => {
     if(section2){
@@ -91,119 +102,125 @@ const infosPage = () => {
       <Head>
         <title>Estelle Bétry psychomotricienne Mouriès Alpilles - Psychomotricité - Public - Troubles psychomoteurs - TDAH</title>   
       </Head>
-
-      <SmoothScrollProvider options={{smooth : true, multiplier : 1, smartphone:{smooth : true}, tablet:{smooth:true}}}>
-        <Wrapper data-scroll-container>
-          <div id='super-container'>
-            <div className="menu-container" data-scroll data-scroll-sticky data-scroll-target="#super-container">
-              <nav>
-                <Menu color="white" backgroundColor="#9f7f92"/>
-              </nav>
-            </div>
+      {
+        !loaded 
+        ? <div></div>
+        :
+        <SmoothScrollProvider options={{smooth : true, multiplier : 1, smartphone:{smooth : true}, tablet:{smooth:true}}}>
+          <Wrapper data-scroll-container>
             
-            <div className="section-title" ref={sectionTitle}>
-              <div>
-                <span ref={title}>Infos pratiques</span>  
+            <div id='super-container'>
+              <div className="menu-container" data-scroll data-scroll-sticky data-scroll-target="#super-container">
+                <nav>
+                  <Menu color="white" backgroundColor="#9f7f92"/>
+                </nav>
               </div>
-              <div className="trait" ref={trait} style={{margin :`${size.width<1365? "20px":"40px"} 0 0px 0`, position:"static"}}>
-                <Trait width={titleWidth} bgColor="#326886" height={`${size.width<1365? "5px" : "8px"}`}/>
-              </div> 
-            </div>
+              
+              <div className="section-title" ref={sectionTitle}>
+                <div>
+                  <span ref={title}>Infos pratiques</span>  
+                </div>
+                <div className="trait" ref={trait} style={{margin :`${size.width<1365? "20px":"40px"} 0 0px 0`, position:"static"}}>
+                  <Trait width={titleWidth} bgColor="#326886" height={`${size.width<1365? "5px" : "8px"}`}/>
+                </div> 
+              </div>
 
-            <main>
-              <section>
-                <h3 className='sub-title first'>Prestations proposées</h3>
-                <div className="cards-container">
-                  <div className="card-body">
-                    <h4>Bilan psychomoteur</h4>
-                    <div className="link">
-                      <a href="/pratique">
-                        <span>En savoir plus <i className="fas fa-arrow-circle-right fa-1x"/></span>
-                      </a>
-                    </div>
-                  </div>
-                  <div className="card-body">
-                    <h4>Suivi individuel et/ou groupal</h4>
-                    <div className="link">
-                      <a href="/infos/#contact">
-                        <span style={{cursor:"pointer"}}>
-                          Me contacter <i className="fas fa-arrow-circle-right fa-1x"/>
-                        </span> 
-                      </a>
-                    </div>
-                  </div>
-                  <div className="card-body">
-                    <h4>Equipe éducative/réunion pédagogique</h4>
-                    <div className="link">
-                      <a href="/infos/#contact">
-                        <span style={{cursor:"pointer"}}>
-                          Me contacter <i className="fas fa-arrow-circle-right fa-1x"/>
-                        </span> 
-                      </a>
-                    </div>
-                  </div>
-                  <div className="card-body">
-                    <h4>Entretien parental</h4>
-                    <div className="link">
-                      <a href="/infos/#contact">
-                        <span style={{cursor:"pointer"}}>
-                          Me contacter <i className="fas fa-arrow-circle-right fa-1x"/>
-                        </span> 
-                      </a>
-                    </div>
-                  </div>
-                  <div className="card-body">
-                    <h4>Atelier guidance parentale (BARKLEY)</h4>
-                    <div className="link">
-                      <a href="/ateliers">
-                        <span>
-                          En savoir plus <i className="fas fa-arrow-circle-right fa-1x"/>
-                        </span>
-                      </a>
-                    </div>
-                  </div>
-                  <div className="card-body">
-                    <h4>Atelier de relaxation pour enfant</h4>
-                    <div className="link">
-                      <span>
-                        <a href="/ateliers/#relaxation">
-                          En savoir plus <i className="fas fa-arrow-circle-right fa-1x"/>
+              <main>
+                <section>
+                  <h3 className='sub-title first'>Prestations proposées</h3>
+                  <div className="cards-container">
+                    <div className="card-body">
+                      <h4>Bilan psychomoteur</h4>
+                      <div className="link">
+                        <a href="/pratique">
+                          <span>En savoir plus <i className="fas fa-arrow-circle-right fa-1x"/></span>
                         </a>
-                      </span> 
+                      </div>
                     </div>
-                  </div>  
+                    <div className="card-body">
+                      <h4>Suivi individuel et/ou groupal</h4>
+                      <div className="link">
+                        <a href="/infos/#contact">
+                          <span style={{cursor:"pointer"}}>
+                            Me contacter <i className="fas fa-arrow-circle-right fa-1x"/>
+                          </span> 
+                        </a>
+                      </div>
+                    </div>
+                    <div className="card-body">
+                      <h4>Equipe éducative/réunion pédagogique</h4>
+                      <div className="link">
+                        <a href="/infos/#contact">
+                          <span style={{cursor:"pointer"}}>
+                            Me contacter <i className="fas fa-arrow-circle-right fa-1x"/>
+                          </span> 
+                        </a>
+                      </div>
+                    </div>
+                    <div className="card-body">
+                      <h4>Entretien parental</h4>
+                      <div className="link">
+                        <a href="/infos/#contact">
+                          <span style={{cursor:"pointer"}}>
+                            Me contacter <i className="fas fa-arrow-circle-right fa-1x"/>
+                          </span> 
+                        </a>
+                      </div>
+                    </div>
+                    <div className="card-body">
+                      <h4>Atelier guidance parentale (BARKLEY)</h4>
+                      <div className="link">
+                        <a href="/ateliers">
+                          <span>
+                            En savoir plus <i className="fas fa-arrow-circle-right fa-1x"/>
+                          </span>
+                        </a>
+                      </div>
+                    </div>
+                    <div className="card-body">
+                      <h4>Atelier de relaxation pour enfant</h4>
+                      <div className="link">
+                        <span>
+                          <a href="/ateliers/#relaxation">
+                            En savoir plus <i className="fas fa-arrow-circle-right fa-1x"/>
+                          </a>
+                        </span> 
+                      </div>
+                    </div>  
+                  </div>
+                </section>
+                <InView as="section" threshold="0.5" onChange={(inView, entry)=>setSection2(inView)}>
+                  <h3 className='sub-title second'>Tarifs</h3>
+                  <div className="texte-tarif tarif">
+                    La publication des tarifs pour les sé&shy;ances liées à un par&shy;cours de soins psy&shy;chomoteurs (et non les ateliers) sur in&shy;ternet <b>peut être consi&shy;dérée com&shy;me de la publicité</b>. En re&shy;vanche, <b>les mon&shy;tants des soins sont af&shy;fichés au cabinet de psycho&shy;motricité</b>. Vous pou&shy;vez me contacter par téléphone ou par e-mail pour tout renseigne&shy;ment ou de&shy;man&shy;de de devis.
+                  </div>
+                </InView>
+                <InView as="section" threshold="0.5" onChange={(inView, entry)=>setSection3(inView)}>
+                <h3 className='sub-title third'>Remboursement des soins</h3>
+                  <div className="texte-tarif mutuelle">
+                    <p>
+                      <b>Les soins psychomoteurs ne sont pas remboursés par la sécurité sociale</b> mais vous pouvez vous ren&shy;seigner auprès de <b>votre mutuelle qui peut prendre en charge quelques séan&shy;ces</b>(comme MGEN, AG2R, etc.).
+                    </p>
+                    <p>
+                      La <a href="http://www.mdph13.fr" target="_blank">MDPH des Bouches-du-Rhône</a> peut allouer une allocation (AEEH, AAH) en fonction de certains cri&shy;tères. Vous pouvez vous renseigner auprès du CCAS de votre ville pour avoir une aide à la constitution d’un dossier.
+                    </p>
+                  </div>
+                </InView>
+                <div className="bg-image">
+                  <img src="/images/20210422_145038.jpg"/>
                 </div>
-              </section>
-              <InView as="section" threshold="0.5" onChange={(inView, entry)=>setSection2(inView)}>
-                <h3 className='sub-title second'>Tarifs</h3>
-                <div className="texte-tarif tarif">
-                  La publication des tarifs pour les sé&shy;ances liées à un par&shy;cours de soins psy&shy;chomoteurs (et non les ateliers) sur in&shy;ternet <b>peut être consi&shy;dérée com&shy;me de la publicité</b>. En re&shy;vanche, <b>les mon&shy;tants des soins sont af&shy;fichés au cabinet de psycho&shy;motricité</b>. Vous pou&shy;vez me contacter par téléphone ou par e-mail pour tout renseigne&shy;ment ou de&shy;man&shy;de de devis.
-                </div>
+              </main>
+              
+              <div className="separateur" style={{backgroundColor:`${footerInView? "#9f7f92":"transparent"}`}}/>
+              <InView as="div" id="contact" threshold="0.9" onChange={(inView, entry)=>setFooterInView(inView)}>
+                <Footer color="#9f7f92"/>
               </InView>
-              <InView as="section" threshold="0.5" onChange={(inView, entry)=>setSection3(inView)}>
-              <h3 className='sub-title third'>Remboursement des soins</h3>
-                <div className="texte-tarif mutuelle">
-                  <p>
-                    <b>Les soins psychomoteurs ne sont pas remboursés par la sécurité sociale</b> mais vous pouvez vous ren&shy;seigner auprès de <b>votre mutuelle qui peut prendre en charge quelques séan&shy;ces</b>(comme MGEN, AG2R, etc.).
-                  </p>
-                  <p>
-                    La <a href="http://www.mdph13.fr" target="_blank">MDPH des Bouches-du-Rhône</a> peut allouer une allocation (AEEH, AAH) en fonction de certains cri&shy;tères. Vous pouvez vous renseigner auprès du CCAS de votre ville pour avoir une aide à la constitution d’un dossier.
-                  </p>
-                </div>
-              </InView>
-              <div className="bg-image">
-                <img src="/images/20210422_145038.jpg"/>
-              </div>
-            </main>
+              
+            </div> 
             
-            <div className="separateur" style={{backgroundColor:`${footerInView? "#9f7f92":"transparent"}`}}/>
-            <InView as="div" id="contact" threshold="0.9" onChange={(inView, entry)=>setFooterInView(inView)}>
-              <Footer color="#9f7f92"/>
-            </InView>
-            
-          </div> 
-        </Wrapper>
-      </SmoothScrollProvider>
+          </Wrapper> 
+        </SmoothScrollProvider>
+      }
     </div>
   )
 }

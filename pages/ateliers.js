@@ -14,10 +14,15 @@ const ateliers = () => {
   const [footerInView, setFooterInView] = useState(false)
   const [imageDimension, setImageDimension] = useState({width : 0, height: 0})
   const [imgTranslate, setImgTranslate] = useState(false)
+  const [loaded, setLoaded] = useState(false)
 
   const imageSeparation = useRef(null)
 
   const size = useWindowSize()
+
+  useEffect(()=>{
+    setTimeout(setLoaded(true), 300)
+  }, [loaded])
 
   useEffect(()=>{
     setImageDimension({width : imageSeparation.current.offsetWidth, height : imageSeparation.current.offsetHeight})

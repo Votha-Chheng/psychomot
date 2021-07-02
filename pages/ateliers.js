@@ -14,22 +14,17 @@ const ateliers = () => {
   const [footerInView, setFooterInView] = useState(false)
   const [imageDimension, setImageDimension] = useState({width : 0, height: 0})
   const [imgTranslate, setImgTranslate] = useState(false)
-  const [loaded, setLoaded] = useState(false)
 
   const imageSeparation = useRef(null)
 
   const size = useWindowSize()
 
   useEffect(()=>{
-    setTimeout(()=>setLoaded(true), 500)
-  }, [loaded])
-
-  useEffect(()=>{
     if(loaded){
       setImageDimension({width : imageSeparation.current.offsetWidth, height : imageSeparation.current.offsetHeight})
     }
    
-  }, [loaded, size, imageDimension.width, imageDimension.height])
+  }, [ size, imageDimension.width, imageDimension.height])
 
   return (
     <div>
@@ -37,12 +32,9 @@ const ateliers = () => {
         <title>Estelle Bétry psychomotricienne Mouriès Alpilles - Psychomotricité - Ateliers - Guidance parentale - Programme BARKLEY - TDAH</title>   
       </Head>
 
-      {
-        !loaded 
-        ? <div></div>
-        :
         <SmoothScrollProvider options={{smooth : true, multiplier : 1, smartphone:{smooth : true}, tablet:{smooth:true}}}>
           <DivWrapper data-scroll-container>
+
             <div id="super-container-3">
               <div className="menu-container" style={{backgroundColor:"#9f7f92"}} data-scroll data-scroll-sticky data-scroll-target="#super-container-3">
                 <nav>
@@ -74,7 +66,7 @@ const ateliers = () => {
             </div> 
           </DivWrapper>
         </SmoothScrollProvider>
-      }
+      
     </div>
     
   );

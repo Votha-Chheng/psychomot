@@ -12,13 +12,6 @@ import { useEffect, useState } from "react";
 const pratique = () => {
   const [partTwoInview, setPartTwoInView] = useState(false)
   const [partThreeInview, setPartThreeInView] = useState(false)
-  const [loaded, setLoaded] = useState(false)
-
-  useEffect(()=>{
-    
-    setTimeout(()=>setLoaded(true), 500)
-
-  }, [loaded])
 
   const firstArray = Array.from({length : 31}).map((currentElement, i) => i<10 ? "0"+(i) : String(i))
 
@@ -33,7 +26,7 @@ const pratique = () => {
 
         <SmoothScrollProvider options={{smooth : true, multiplier : 1, smartphone:{smooth : true}, tablet:{smooth:true}}}>
           
-            <Wrapper data-scroll-container style={{opacity:`${loaded? "1":"0"}`}}>
+            <Wrapper data-scroll-container>
               <div id='super-container-2'>
                 <div className="menu-container" style={{backgroundColor:"#9f7f92"}} data-scroll data-scroll-sticky data-scroll-target="#super-container-2">
                   <nav>

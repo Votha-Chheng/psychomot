@@ -1,7 +1,14 @@
 import Head from 'next/head'
+import { useEffect, useState } from 'react'
 import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }) {
+  const [loaded, setLoaded] = useState(false)
+
+  useEffect(()=>{
+    setTimeout(()=>setLoaded(true), 500)
+  },[loaded])
+
   return (
     <>
       <Head>
@@ -28,7 +35,12 @@ function MyApp({ Component, pageProps }) {
       </Head>
 
       <main data-scroll-container className='container'>
-        <Component {...pageProps} />
+        {
+          !loaded
+          ? <div></div>
+          : <Component {...pageProps} />
+        }
+        
       </main>
       
     </>

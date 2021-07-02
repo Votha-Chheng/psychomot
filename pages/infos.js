@@ -14,7 +14,6 @@ const infosPage = () => {
   const [footerInView, setFooterInView] = useState(false)
   const [section2, setSection2] = useState(false)
   const [section3, setSection3] = useState(false)
-  const [loaded, setLoaded] = useState(false)
 
   const size = useWindowSize()
 
@@ -22,51 +21,44 @@ const infosPage = () => {
   const sectionTitle = useRef(null)
   const title = useRef(null)
 
-  useEffect(()=>{
-    setTimeout(()=>setLoaded(true), 500)
-  }, [loaded])
-
   useEffect(() =>{
-    if(loaded){
-      setTitleWidth(sectionTitle.current.offsetWidth)
-    }
-    
+    setTitleWidth(sectionTitle.current.offsetWidth)
+
   },[titleWidth, size, loaded])
 
   useEffect(() => {
-    if(loaded){
-      gsap.to(trait.current, {
-        x: 0,
-        duration: 1.2,
-        delay : 0.2
-      })
+    gsap.to(trait.current, {
+      x: 0,
+      duration: 1.2,
+      delay : 0.2
+    })
 
-      gsap.to(".section-title", {
-        y: 0,
-        autoAlpha : 1,
-        duration : 0.5,
-        delay : 0.2
-      })
-      gsap.to(".bg-image img", {
-        autoAlpha: 0.5,
-        duration : 0.8,
-        delay : 1
-      })
-      gsap.to(".first", {
-        autoAlpha: 1,
-        duration : 0.5,
-        delay : 0.9
-      })
-      gsap.to(".card-body", {
-        y: 0,
-        autoAlpha : 1,
-        duration : 0.5,
-        delay : 1,
-        stagger : 0.2
-      })
-    }
+    gsap.to(".section-title", {
+      y: 0,
+      autoAlpha : 1,
+      duration : 0.5,
+      delay : 0.2
+    })
+    gsap.to(".bg-image img", {
+      autoAlpha: 0.5,
+      duration : 0.8,
+      delay : 1
+    })
+    gsap.to(".first", {
+      autoAlpha: 1,
+      duration : 0.5,
+      delay : 0.9
+    })
+    gsap.to(".card-body", {
+      y: 0,
+      autoAlpha : 1,
+      duration : 0.5,
+      delay : 1,
+      stagger : 0.2
+    })
     
-  },[loaded])
+    
+  },[])
 
   useEffect(() => {
     if(section2){
@@ -104,7 +96,7 @@ const infosPage = () => {
       </Head>
 
         <SmoothScrollProvider options={{smooth : true, multiplier : 1, smartphone:{smooth : true}, tablet:{smooth:true}}}>
-          <Wrapper data-scroll-container style={{opacity: `${loaded?"1": "0"}`}}>
+          <Wrapper data-scroll-container>
             
             <div id='super-container'>
               <div className="menu-container" data-scroll data-scroll-sticky data-scroll-target="#super-container">

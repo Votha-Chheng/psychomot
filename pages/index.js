@@ -15,15 +15,11 @@ export default function Home() {
   const [menuViolet, setMenuViolet] = useState(false)
   const [menuBleu, setMenuBleu] = useState(false)
   const [footerInView, setFooterInView] = useState(false)
-  const [loaded, setLoaded] = useState(false)
 
   const containerRef = useRef(null)
 
   const size = useWindowSize()
 
-  useEffect(()=>{
-    setTimeout(()=>setLoaded(true), 500)
-  }, [loaded])
 
   return (
     <div data-scroll-container>
@@ -31,7 +27,7 @@ export default function Home() {
         <title>Estelle Bétry psychomotricienne diplomée d'état DE à Mouriès</title>   
       </Head>
       <SmoothScrollProvider options={{smooth : true, multiplier : 1, smartphone:{smooth : true}, tablet:{smooth:true}, firefoxMultiplier: 1000}}>
-          <Wrapper style={{opacity:`${loaded?"1":"0"}`}}>         
+          <Wrapper>         
             <div className='containerRef' ref={containerRef} data-scroll-speed="1" data-scroll-position="top">
               <div className="menu-container" 
                 data-scroll 

@@ -12,13 +12,6 @@ const psychomotricitePage = () => {
   const [partOneInview, setPartOneInView] = useState(true)
   const [partTwoInview, setPartTwoInView] = useState(false)
   const [partThreeInview, setPartThreeInView] = useState(false)
-  const [loaded, setLoaded] = useState(false)
-
-  useEffect(()=>{
-    
-    setTimeout(()=>setLoaded(true), 500)
-
-  }, [loaded])
 
   return (
     <div>
@@ -29,11 +22,8 @@ const psychomotricitePage = () => {
           
       <SmoothScrollProvider options={{smooth : true, multiplier : 1, smartphone:{smooth : true}, tablet:{smooth:true}}}>
   
-          <Wrapper data-scroll-container style={{opacity:`${loaded?"1":"0"}`}}>
+          <Wrapper data-scroll-container>
           {
-          !loaded 
-          ? <div></div>
-          :
             <div id='super-container'>
               <div className="menu-container" style={{backgroundColor:`${(partTwoInview ||(partOneInview && partTwoInview)) ? "#28536b" : partOneInview ?"#9f7f92" : partThreeInview ? "#9f7f92" : "#28536b" }`}} data-scroll data-scroll-sticky data-scroll-target="#super-container">
                 <nav>

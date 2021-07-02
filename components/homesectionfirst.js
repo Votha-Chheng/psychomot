@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import {useInView} from 'react-intersection-observer'
 import useWindowSize from "../hooks/useWindowSize";
+import {gsap} from "gsap";
 
 const HomeSectionFirst = ({backgroundColor}) => {
 
@@ -25,7 +26,6 @@ const HomeSectionFirst = ({backgroundColor}) => {
 
   const size = useWindowSize()
 
-  //console.log(losangeTwo.current.getBoundingClientRect())
 
   useEffect(() => {
     setStepOnePosition({top : losangeOne.current.offsetTop, left : losangeOne.current.getBoundingClientRect().left})
@@ -43,11 +43,64 @@ const HomeSectionFirst = ({backgroundColor}) => {
     setStepFourPosition({top : losangeFour.current.offsetTop, left : losangeFour.current.getBoundingClientRect().left})
   },[stepFourPosition.top, stepFourPosition.left, size.width])
 
+  useEffect(()=>{
+    if(inView){
+      gsap.to(".h3First", {
+        rotationX:0,
+        duration : 0.5,
+        delay : 0.8
+      })
+      gsap.to(".texte-1", {
+        x:0,
+        autoAlpha: 1,
+        duration : 1.5,
+        delay : 0.9,
+        ease : "Power4.easeOut"
+      })
+      gsap.to(".h3Second", {
+        rotationX:0,
+        duration : 0.5,
+        delay : 3
+      })
+      gsap.to(".texte-2", {
+        x:0,
+        autoAlpha: 1,
+        duration : 1.5,
+        delay : 3.1,
+        ease : "Power4.easeOut"
+      })
+      gsap.to(".h3Three", {
+        rotationX:0,
+        duration : 0.5,
+        delay : 4.8
+      })
+      gsap.to(".texte-3", {
+        x:0,
+        autoAlpha: 1,
+        duration : 1.5,
+        delay : 4.9,
+        ease : "Power4.easeOut"
+      })
+      gsap.to(".h3Four", {
+        rotationX:0,
+        duration : 0.5,
+        delay : 6.6
+      })
+      gsap.to(".texte-4", {
+        x:0,
+        autoAlpha: 1,
+        duration : 1.5,
+        delay : 6.7,
+        ease : "Power4.easeOut"
+      })
+    } 
+  })
+
 
   return (
     <SectionWrap ref={ref} data-scroll-class='trigger' style={{backgroundColor}}>
       <h2 className="H2" data-scroll data-scroll-class='in-view'>Faire appel à une psychomotricienne, comment ça se passe ?</h2>
-      <h3 className={`h3First ${inView? "h3-in-view":""}`} style={{position:'absolute', width:'300px', top : `${stepOnePosition.top-20}px`, left : `${stepOnePosition.left-300}px`, transitionDelay : "1.2s"}}>
+      <h3 className="h3First" style={{position:'absolute', width:'300px', top : `${stepOnePosition.top-20}px`, left : `${stepOnePosition.left-300}px`}}>
         Le premier contact téléphonique
       </h3>
       <div id='losange-container-1' ref={losangeOne}> 
@@ -59,10 +112,10 @@ const HomeSectionFirst = ({backgroundColor}) => {
         <div className={`losange-violet-3 ${inView ? "losange-in-view-3" : ""}`}/>
         <div className={`losange-violet-4 ${inView ? "losange-in-view-4" : ""}`} />
       </div> 
-      <div className={`text-step ${inView? "in-view-text":""}`} style={{top : `${stepOnePosition.top - 15}px`, left : `${stepOnePosition.left+190}px`, transitionDelay : "1.3s, 1.4s"}}>
+      <div className="text-step texte-1" style={{top : `${stepOnePosition.top - 15}px`, left : `${stepOnePosition.left+190}px`}}>
         <b>Durant ce 1er contact téléphonique,</b> vous me préciserez vos demandes (qui est le patient concerné, si un(e) enseignant(e) vous a orienté vers une consultation psychomoteur, le trouble concerné, etc.). Nous pourrons dès lors fixer un 1er rendez-vous. 
       </div>
-      <h3 className={`h3Second ${inView? "h3-in-view":""}`} style={{position:'absolute', width:'300px', top : `${stepTwoPosition.top-20}px`, left : `${stepTwoPosition.left-300}px`, transitionDelay : "3s"}}>
+      <h3 className="h3Second" style={{position:'absolute', width:'300px', top : `${stepTwoPosition.top-20}px`, left : `${stepTwoPosition.left-300}px`}}>
         Le premier entretien au cabinet de psychomotricité
       </h3>
       <div className="line-container">
@@ -77,10 +130,10 @@ const HomeSectionFirst = ({backgroundColor}) => {
         <div className={`losange-violet-3 ${inView ? "losange-in-view-3-2" : ""}`} />
         <div className={`losange-violet-4 ${inView ? "losange-in-view-4-2" : ""}`}/>
       </div>
-      <div className={`text-step ${inView? "in-view-text":""}`} style={{top : `${stepTwoPosition.top-15}px`, left : `${stepTwoPosition.left+190}px`, transitionDelay : "3.1s, 3.2s"}}>
+      <div className="text-step texte-2" style={{top : `${stepTwoPosition.top-15}px`, left : `${stepTwoPosition.left+190}px`}}>
         <b>Un entretien préliminaire,</b> à l’aide de questionnaires si besoin, permettra de retracer l’histoire de vie de la personne et de mieux comprendre son fonction&shy;nement dans son environnement. Il permettra aussi, le cas échéant, de choisir les tests pertinents qui seront utilisés pour le <b>bilan psychomoteur</b>.
       </div>
-      <h3 className={`h3Three ${inView? "h3-in-view":""}`} style={{position:'absolute', width:'300px', top : `${stepThreePosition.top-20}px`, left : `${stepThreePosition.left-300}px`, transitionDelay : "4.8s"}}>
+      <h3 className="h3Three" style={{position:'absolute', width:'300px', top : `${stepThreePosition.top-20}px`, left : `${stepThreePosition.left-300}px`}}>
         Le bilan psychomoteur
       </h3>
       <div className="line-container">
@@ -95,11 +148,11 @@ const HomeSectionFirst = ({backgroundColor}) => {
         <div className={`losange-violet-3 ${inView ? 'losange-in-view-3-3':""}`}/>
         <div className={`losange-violet-4 ${inView ? 'losange-in-view-4-3':""}`}/>
       </div>
-      <div className={`text-step ${inView? "in-view-text":""}`} style={{top : `${stepThreePosition.top-15}px`, left : `${stepThreePosition.left+190}px`, transitionDelay : "4.9s, 5s"}}>
+      <div className="text-step texte-3" style={{top : `${stepThreePosition.top-15}px`, left : `${stepThreePosition.left+190}px`}}>
         <b>Le bilan psychomoteur</b> se fait <b><u>sur prescription médicale</u></b>. Il consiste en une série de tests standardisés couplés à une observation clinique qui permettront d’orienter le diagnostic psychomoteur, d’évaluer la relation à l’autre, les fonctions psychomotrices performantes et celles perturbées.
       </div>
 
-      <h3 className={`h3Four ${inView? "h3-in-view":""}`} style={{position:'absolute', width:'300px', top : `${stepFourPosition.top-20}px`, left : `${stepFourPosition.left-300}px`, transitionDelay : "6.6s"}}>
+      <h3 className="h3Four" style={{position:'absolute', width:'300px', top : `${stepFourPosition.top-20}px`, left : `${stepFourPosition.left-300}px`}}>
         Restitution du bilan, suivi et rééducation
       </h3>
       <div className="line-container">
@@ -114,7 +167,7 @@ const HomeSectionFirst = ({backgroundColor}) => {
         <div className={`losange-violet-3 ${inView ? 'losange-in-view-3-4':""}`}/>
         <div className={`losange-violet-4 ${inView ? 'losange-in-view-4-4':""}`}/>
       </div>
-      <div className={`text-step ${inView? "in-view-text":""}`} style={{top : `${stepFourPosition.top-15}px`, left : `${stepFourPosition.left+190}px`, transitionDelay : "6.7s, 6.8s"}}>
+      <div className="text-step texte-4" style={{top : `${stepFourPosition.top-15}px`, left : `${stepFourPosition.left+190}px`}}>
         <b>La durée d'un suivi ou d'une rééducation peut fortement varier d'une personne à l'autre</b> et dépendra du type de trouble à soigner, de l'investissement du patient ainsi que de la régularité dans les séances du suivi et de rééducation. Les objectifs de ce suivi dépendront quant à eux des conclusions du bilan psychomoteur.
       </div>
 
@@ -148,11 +201,6 @@ const SectionWrap = styled.section`
   h3{
     font-size : 1.75em;
     transform : rotateX(90deg);
-    transition : transform 0.8s ease-out;
-  }
-  .h3-in-view{
-    transform : rotateX(0deg);
-    transition-property : transform;
   }
 
   h2{
@@ -173,7 +221,6 @@ const SectionWrap = styled.section`
   .in-view{
     transform : translateY(0%);
     opacity : 1; 
-
   }
   h3{
     color : #28536b;
@@ -191,7 +238,6 @@ const SectionWrap = styled.section`
     padding : 10px;
     opacity : 0;
     transform : translateX(50%);
-    transition : transform 0.7s cubic-bezier(.88,.87,.71,1.2), opacity 1.5s;
     color : #28536b;
 
     a{
@@ -203,11 +249,11 @@ const SectionWrap = styled.section`
     }
   }
   
-  .text-step.in-view-text{ 
+  /* .text-step.in-view-text{ 
     opacity : 1; 
     transform:translateX(0%);
     transition-property : transform, opacity;
-  }
+  } */
 
   .line-container{
     width : 10px;
@@ -251,11 +297,9 @@ const SectionWrap = styled.section`
     text-align :center;
     font-size : 2.5em;
     font-weight : bold;
-    //font-family: 'Bree Serif', serif;
     font-family: 'Oswald', sans-serif;
     height:80px;
     width:80px;
-    //z-index: -1;
     transform:rotateZ(-45deg);
     padding-top :10px;
     opacity : 0;

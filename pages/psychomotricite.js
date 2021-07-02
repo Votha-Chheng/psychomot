@@ -4,7 +4,7 @@ import Menu from "../components/menu";
 import { SmoothScrollProvider } from "../src/SmoothScroll.context";
 import { useState } from "react";
 import Footer from "../components/footer";
-import PsychSection1 from "../components/psyChsection1";
+import PsychSection1 from "../components/psychsection1";
 import PsychSection2 from "../components/psychsection2";
 import {InView} from "react-intersection-observer";
 

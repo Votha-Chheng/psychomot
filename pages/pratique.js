@@ -31,13 +31,9 @@ const pratique = () => {
         <title>Estelle Bétry psychomotricienne Mouriès Alpilles - Psychomotricité - Pratique - programme Barkley - TDAH - Atelier relaxation - bilan psychomoteur</title>   
       </Head>
 
-      {
-        !loaded
-        ? <div></div>
-        :
         <SmoothScrollProvider options={{smooth : true, multiplier : 1, smartphone:{smooth : true}, tablet:{smooth:true}}}>
           
-            <Wrapper data-scroll-container>
+            <Wrapper data-scroll-container style={{opacity:`${loaded? "1":"0"}`}}>
               <div id='super-container-2'>
                 <div className="menu-container" style={{backgroundColor:"#9f7f92"}} data-scroll data-scroll-sticky data-scroll-target="#super-container-2">
                   <nav>
@@ -88,7 +84,7 @@ const pratique = () => {
               </div>
             </Wrapper>   
         </SmoothScrollProvider>
-      }
+
     </div>
   )
 }

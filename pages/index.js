@@ -30,12 +30,8 @@ export default function Home() {
       <Head>
         <title>Estelle Bétry psychomotricienne diplomée d'état DE à Mouriès</title>   
       </Head>
-        {
-        !loaded 
-        ? (<div></div>)
-        :
       <SmoothScrollProvider options={{smooth : true, multiplier : 1, smartphone:{smooth : true}, tablet:{smooth:true}, firefoxMultiplier: 1000}}>
-          <Wrapper >         
+          <Wrapper style={{opacity:`${loaded?"1":"0"}`}}>         
             <div className='containerRef' ref={containerRef} data-scroll-speed="1" data-scroll-position="top">
               <div className="menu-container" 
                 data-scroll 
@@ -68,8 +64,7 @@ export default function Home() {
             </div>
           </Wrapper>
       </SmoothScrollProvider>
-      }
-      
+  
     </div>
   )
 }

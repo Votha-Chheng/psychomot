@@ -102,12 +102,9 @@ const infosPage = () => {
       <Head>
         <title>Estelle Bétry psychomotricienne Mouriès Alpilles - Psychomotricité - Public - Troubles psychomoteurs - TDAH</title>   
       </Head>
-      {
-        !loaded 
-        ? <div></div>
-        :
+
         <SmoothScrollProvider options={{smooth : true, multiplier : 1, smartphone:{smooth : true}, tablet:{smooth:true}}}>
-          <Wrapper data-scroll-container>
+          <Wrapper data-scroll-container style={{opacity: `${loaded?"1": "0"}`}}>
             
             <div id='super-container'>
               <div className="menu-container" data-scroll data-scroll-sticky data-scroll-target="#super-container">
@@ -220,7 +217,6 @@ const infosPage = () => {
             
           </Wrapper> 
         </SmoothScrollProvider>
-      }
     </div>
   )
 }

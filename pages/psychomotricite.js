@@ -29,7 +29,7 @@ const psychomotricitePage = () => {
           
       <SmoothScrollProvider options={{smooth : true, multiplier : 1, smartphone:{smooth : true}, tablet:{smooth:true}}}>
   
-          <Wrapper data-scroll-container>
+          <Wrapper data-scroll-container style={{opacity:`${loaded?"1":"0"}`}}>
           {
           !loaded 
           ? <div></div>

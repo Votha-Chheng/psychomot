@@ -118,6 +118,18 @@ const DivWrapper = styled.div`
     }
   }
 
+  //Position sticky elements when locomotive scroll doesn't work
+@media (max-width: 1024px){
+  width: 100vw !important;
+  overflow-x: hidden;
+  
+  div.menu-container{
+    position: fixed !important; 
+    top : 0;
+    left : 0;
+  }
+}
+
   @media (max-width:1080px){
     .image-separation{
       img{
@@ -152,40 +164,6 @@ const DivWrapper = styled.div`
     transition: background-color 0.5s ease-out;
   }
 
-
-@media (width:360px) and (height:640px){
-  height: 5770px;
-} 
-@media (width:411px) and (height:731px){
-  height: 5865px;
-}   
-@media (width:411px) and (height:823px){
-  height: 6025px;
-}
-@media (width:375px) and (height:667px){
-  height: 5795px;
-}
-@media (width:414px) and (height:736px){
-  height: 5870px;
-}
-@media (width:375px) and (height:812px){
-  height: 6075px;
-}
-@media (width:768px) and (height:1024px){
-  height: 4970px;
-}
-@media (width:1024px) and (height:1366px){
-  height: 4725px;
-}
-@media (width:540px) and (height:720px){
-  height: 5310px;
-}  
-@media (width:280px) and (height:653px){
-  height: 6025px;
-}
-@media (width:360px) and (height:740px){
-  height: 5135px;
-}
 `
 
 export default ateliers;

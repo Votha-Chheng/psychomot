@@ -80,47 +80,17 @@ const Wrapper = styled.div`
     }
   }
 
-@media (width:360px) and (height:640px){
-  height: 6585px;
-} 
-@media (width:411px) and (height:731px){
-  height: 6345px;
-}   
-@media (width:411px) and (height:823px){
-  height: 6565px;
-}
-@media (width:375px) and (height:667px){
-  height: 6540px;
-}
-@media (width:414px) and (height:736px){
-  height: 6355px;
-}
-@media (width:375px) and (height:812px){
-  height: 6890px;
-}
-@media (width:768px) and (height:1024px){
-  height: 6205px;
-}
-@media (width:1024px) and (height:1366px){
-  height: 7100px;
-}
-@media (width:540px) and (height:720px){
-  height: 5865px;
-}  
-@media (width:280px) and (height:653px){
-  height: 7900px;
-}
-@media (width:360px) and (height:740px){
-  height: 6425px;
-}
-  
-
-
-
-
-
-
-
+  //Position sticky elements when locomotive scroll doesn't work
+  @media (max-width: 1024px){
+    width: 100vw !important;
+    overflow-x: hidden;
+    
+    div.menu-container{
+      position: fixed !important; 
+      top : 0;
+      left : 0;
+    }
+  }
 
 `
 

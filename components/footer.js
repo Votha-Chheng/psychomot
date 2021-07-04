@@ -81,7 +81,7 @@ const DivWrapper = styled.div`
   }
 
   .contact-container{
-    height : 100%;
+    height : auto;
     position : absolute;
     top : 2vh;
     left : 1vw;

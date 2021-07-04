@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <meta charSet="utf-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1"/>
         <meta name="description" content="Estelle Bétry, psychomotricienne libérale à Mouriès (13)"/>
         <link rel="icon" href="/logopsy.svg" />
         <link rel="preconnect" href="https://fonts.gstatic.com"/>

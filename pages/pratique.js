@@ -142,6 +142,19 @@ const Wrapper = styled.div`
 
     }
   }
+  //Position sticky elements when locomotive scroll doesn't work
+  @media (max-width: 1024px){
+    width: 100vw !important;
+    overflow-x: hidden;
+    
+    div.menu-container{
+      position: fixed !important; 
+      top : 0;
+      left : 0;
+    }
+  }
+
+/* 
 @media (width:360px) and (height:640px){
   height: 11280px;
 } 
@@ -174,7 +187,7 @@ const Wrapper = styled.div`
 }
 @media (width:360px) and (height:740px){
   height: 9985px;
-}
+} */
 
 
 

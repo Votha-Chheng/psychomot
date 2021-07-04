@@ -86,11 +86,14 @@ const Wrapper = styled.div`
   z-index: 2;
   height: 100%;
 
+  .containerRef{
+    position: relative;
+  }
+
   div.menu-container{
     z-index: 5;
     position: absolute;
     width: 100%;  
-   
   }
 
   nav{
@@ -104,44 +107,19 @@ const Wrapper = styled.div`
     height: 100%;
   }
 
-  //Ne pas toucher !!!! Fait apparaître le footer.
-  /***********************/
 
+
+//Position sticky elements when locomotive scroll doesn't work
+@media (max-width: 1024px){
+  width: 100vw !important;
+  overflow-x: hidden;
+
+  div.menu-container{
+    position: fixed !important; 
+    top : 0;
+    left : 0;
+  }
+}
   
   
-
-  //OK
-  @media (width:360px) and (height:640px){
-    height: 10620px;
-  }
-  @media (width:411px) and (height:731px){
-    height: 11020px;
-  }
-  @media (width:411px) and (height:823px){
-    height: 11620px;
-  }
-  @media (width:375px) and (height:667px){
-    height: 10695px;
-  }
-  @media (width:414px) and (height:736px){
-    height: 11050px;
-  }
-  @media (width:360px) and (height:740px){
-    height: 9080px;
-  }
-  @media (width:375px) and (height:812px){
-    height: 11645px;
-  }
-  @media (width:768px) and (height:1024px){
-    height: 12210px;
-  }
-  @media (width:1024px) and (height:1366px){
-    height: 14245px;
-  }
-  @media (width:540px) and (height:720px){
-    height: 10530px;
-  }
-  @media (width:280px) and (height:653px){
-    height: 11430px;
-  }
 `

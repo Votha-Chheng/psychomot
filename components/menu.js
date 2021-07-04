@@ -61,7 +61,7 @@ const MenuStyle = styled.div`
 `
 
 const DivStyle = styled.div`
-  position: static;
+  position: fixed;
   margin: 0px 0px 0px -15px;
   padding-left :0;
   display: flex;

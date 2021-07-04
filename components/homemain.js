@@ -471,7 +471,7 @@ const WrapperSection = styled.section`
       }
       .profession {
         overflow-y : hidden;
-        width : 120%;
+        width : 100%;
 
         h1{
           font-family : "Oxygen", sans-serif ;
@@ -479,9 +479,6 @@ const WrapperSection = styled.section`
           font-style : italic;
           margin-bottom : 10px;
           transform : translateY(-125%);
-          span{
-            
-          }
         }
         
       }
@@ -562,8 +559,9 @@ const WrapperSection = styled.section`
   }
 }
 @media (max-width: 575px){
-  .banner-container{
+  div.banner-container{
     overflow : visible !important;
+    width : 110%;
   }
   .profession{
     overflow-x: hidden !important;
@@ -571,6 +569,9 @@ const WrapperSection = styled.section`
   }
   .banner-text{
     text-align: center !important;
+    overflow-x: visible !important;
+    overflow-y : hidden !important;
+    min-width: 247px !important;
 
     h1{
       margin-left: 0px !important;

@@ -36,7 +36,7 @@ const ateliers = () => {
         <title>Estelle Bétry psychomotricienne Mouriès Alpilles - Psychomotricité - Ateliers - Guidance parentale - Programme BARKLEY - TDAH</title>   
       </Head>
 
-        <SmoothScrollProvider options={{smooth : true, multiplier : 1, smartphone:{smooth : true}, tablet:{smooth:true}}}>
+        <SmoothScrollProvider options={{smooth : true, multiplier : 1, firefoxMultiplier: 1000}}>
           <DivWrapper data-scroll-container>
 
             <div id="super-container-3">

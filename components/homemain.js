@@ -549,7 +549,7 @@ const WrapperSection = styled.section`
     font-size:2.5rem !important;
   }
   .profession h1{
-    font-size:1.5rem !important;
+    font-size:1.4rem !important;
   }
   .question{
     width : 100%;
@@ -562,13 +562,15 @@ const WrapperSection = styled.section`
   }
 }
 @media (max-width: 575px){
+  .banner-container{
+    overflow : visible !important;
+  }
   .profession{
-    overflow-x: visible !important;
+    overflow-x: hidden !important;
     overflow-y: hidden !important;
   }
   .banner-text{
     text-align: center !important;
-    //overflow: hidden !important;
 
     h1{
       margin-left: 0px !important;

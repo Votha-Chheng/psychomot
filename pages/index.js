@@ -43,7 +43,7 @@ export default function Home() {
       <Head>
         <title>Estelle Bétry psychomotricienne diplomée d'état DE à Mouriès</title>   
       </Head>
-      <SmoothScrollProvider options={{smooth : true, multiplier : 1, smartphone:{smooth : true}, tablet:{smooth:true}, firefoxMultiplier: 1000}}>
+      <SmoothScrollProvider options={{smooth : true, multiplier : 1, firefoxMultiplier: 1000}}>
         <Wrapper>         
           <div className='containerRef' ref={containerRef} data-scroll-speed="1">
             <div className="menu-container" 

@@ -15,13 +15,18 @@ const HomePresentationSection = ({sectionInView}) => {
   const [specificityInView, setSpecificityInView] = useState(false)
   const [parcoursInView, setParcoursInView] = useState(false)
   const [baliseEnd, setBaliseEnd] = useState(false)
+  const [boxWidth, setBoxWidth] = useState(0)
 
-  const history = useRouter()
+  const box = useRef(null)
 
   const size = useWindowSize()
 
   useEffect(() => {
-    if(quiSuisJeInView){
+    setBoxWidth(box.current.offsetWidth)
+  }, [size, boxWidth])
+
+  useEffect(() => {
+    if(quiSuisJeInView && boxWidth>1024){
       gsap.to("h2.title-h2-side",{
         y:0,
         duration:1.5,
@@ -30,26 +35,27 @@ const HomePresentationSection = ({sectionInView}) => {
     }
   }, [quiSuisJeInView])
 
-  const listSideTitle = ["Quelques mots sur moi...", "Mes spécificités", "Expériences pro et formations"]
+  const listSideTitle = ["Quelques mots sur moi...", "Mes spécificités", "Expériences professionnelles"]
+
 
   return (
     <SectionWrapper style={{backgroundColor:`${baliseEnd ? "#9f7f92" : sectionInView ? "#28536b" : "white"}`}}>
-      <div id='box'>
+      <div id='box' ref={box}>
         <div data-scroll data-scroll-sticky data-scroll-target="#box" style={{position:"absolute"}}>
-          <h2 className="title-h2-side hidden-width-960" style={{ opacity:`${baliseEnd ? "0" : quiSuisJeInView ? "1":specificityInView ? "0" : "0"}`}}>{listSideTitle[0]}</h2>
-          <h2 className="title-h2-side hidden-width-960" style={{opacity:`${baliseEnd ? "0" : parcoursInView ? "0": (quiSuisJeInView && specificityInView)? "0" : specificityInView ? "1":  "0"}`}}>{listSideTitle[1]}</h2>
-          <h2 className="title-h2-side hidden-width-960" style={{opacity:`${baliseEnd ? "0" : parcoursInView ? "1":"0"}`}}>{listSideTitle[2]}</h2>
+          <h2 className="title-h2-side title-first hidden-width-960" style={{ opacity:`${ baliseEnd ? "0" : quiSuisJeInView ? "1":specificityInView ? "0" : "0"}`}}>{listSideTitle[0]}</h2>
+          <h2 className="title-h2-side title-second hidden-width-960" style={{opacity:`${baliseEnd ? "0" : (boxWidth<985) ? "1" : parcoursInView ? "0": (quiSuisJeInView && specificityInView)? "0" : specificityInView ? "1":  "0"}`}}>{listSideTitle[1]}</h2>
+          <h2 className="title-h2-side title-third hidden-width-960" style={{opacity:`${baliseEnd ? "0" : (boxWidth<985) || parcoursInView ? "1":"0"}`}}>{listSideTitle[2]}</h2>
         </div>
 
         <InView as='div' onChange={(inView)=>setQuiSuisJeInView(inView)}>
           <Presentation1/>
         </InView>
         
-        <h3 className="bandeau up" style={{marginBottom:"0"}} data-scroll data-scroll-direction="horizontal" data-scroll-speed="15">
+        <h3 className="bandeau up" data-scroll data-scroll-direction="horizontal" data-scroll-speed="15">
           épanouissement - relations aux autres - connaissance de soi - équilibre - gestion des émotions - relaxation - méditation - potentialité - déleveloppement personnel
           épanouissement - relations aux autres - connaissance de soi - équilibre - gestion des émotions - relaxation - méditation - potentialité - déleveloppement personnel
         </h3>
-        <h3 className="bandeau down" style={{marginTop:"0"}} data-scroll data-scroll-direction="horizontal" data-scroll-speed="-15">
+        <h3 className="bandeau down" data-scroll data-scroll-direction="horizontal" data-scroll-speed="-15">
           relations aux autres - équilibre - potentialité - méditation - relaxation - épanouissement - gestion des émotions - déleveloppement personnel - connaissance de soi
           relations aux autres - équilibre - potentialité - méditation - relaxation - épanouissement - gestion des émotions - déleveloppement personnel - connaissance de soi
         </h3>
@@ -107,15 +113,35 @@ const SectionWrapper = styled.section`
     letter-spacing: 1.5px;
     text-shadow: none;
   }
-  .bandeau.up{
-    margin-top:30vh;
+  .bandeau.up, .bandeau.down{
+    margin:0px;
   }
-  .bandeau.down{
-    margin-bottom:30vh;
-  }
+
   .rotation-card-container{
     width: 80%;
+    margin-left: 150px;
+    margin-top: 30vh;
+  }  
+ 
+
+//Sticky element for mobile view
+@media (max-width:1024px){
+  .title-h2-side{
+    position: static !important;
   }
+  .title-h2-side.title-first{
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  .title-h2-side.title-second{
+    transform: translateY(400px);
+    opacity: 1;
+  }
+  .title-h2-side.title-third{
+    transform: translateY(1200px);
+    opacity: 1;
+  }
+}
 
 @media (max-width:1000px){
   h2.title-h2-side{
@@ -126,11 +152,6 @@ const SectionWrapper = styled.section`
   }
 }
 
-
-  .rotation-card-container{
-    margin-left: 150px;
-    margin-top: 30vh;
-  }
 
 @media (max-width:769px){
   .bandeau{

@@ -185,6 +185,11 @@ const ArticleWrap = styled.article`
     filter: brightness(120%);
   }
 
+@media (max-width:1024px){
+  .specificity-container{
+    padding-top: 250px;
+  }
+}
 @media (max-width:1000px){
   .specificity-container{
     margin: 0 auto;

@@ -128,6 +128,14 @@ const ArticleWrapper = styled.article`
     margin-bottom: 25vh;
     margin-left: 175px;
   }
+
+@media (max-width:1024px){
+.main-container{
+  margin-bottom: 0px;
+  padding-bottom: 250px;
+}
+}
+
   //Valable pour toute la section
 @media (max-width:1000px){
   .main-container{

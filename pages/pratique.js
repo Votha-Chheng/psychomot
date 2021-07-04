@@ -142,7 +142,39 @@ const Wrapper = styled.div`
 
     }
   }
-
+@media (width:360px) and (height:640px){
+  height: 11280px;
+} 
+@media (width:411px) and (height:731px){
+  height: 11055px;
+}   
+@media (width:411px) and (height:823px){
+  height: 11385px;
+}
+@media (width:375px) and (height:667px){
+  height: 11270px;
+}
+@media (width:414px) and (height:736px){
+  height: 11030px;
+}
+@media (width:375px) and (height:812px){
+  height: 11830px;
+}
+@media (width:768px) and (height:1024px){
+  height: 10505px;
+}
+@media (width:1024px) and (height:1366px){
+  height: 10475px;
+}
+@media (width:540px) and (height:720px){
+  height: 10455px;
+}  
+@media (width:280px) and (height:653px){
+  height: 12375px;
+}
+@media (width:360px) and (height:740px){
+  height: 9985px;
+}
 
 
 

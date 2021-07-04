@@ -166,11 +166,7 @@ const SectionWrapper = styled.section`
     margin : 0 auto;
   }
 
-  @media screen and (max-width: 1140px){
-
-  }
-
-  @media screen and (max-width: 745px){
+  @media (max-width: 745px){
     .section-title-tech{
       font-size: calc(1.25rem + 2.5vw) ;
     }

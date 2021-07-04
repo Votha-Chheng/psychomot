@@ -24,7 +24,7 @@ const infosPage = () => {
   useEffect(() =>{
     setTitleWidth(sectionTitle.current.offsetWidth)
 
-  },[titleWidth, size, loaded])
+  },[titleWidth, size])
 
   useEffect(() => {
     gsap.to(trait.current, {
@@ -259,14 +259,6 @@ const Wrapper = styled.div`
     }
   }
 
-  @media screen and (max-width:595px){
-    div.section-title{
-      font-size:calc(1.8rem + 2.5vw) !important;
-      -webkit-text-stroke:none;
-      color: #9f7f92;
-    }
-  }
-
   .section-title{
     padding: 90px 10px 0vh;
     text-transform: uppercase;
@@ -295,24 +287,6 @@ const Wrapper = styled.div`
     border-bottom: 2px solid #28536b;
     width: 85%;
     opacity: 0;
-  }
-
-
-  @media screen and (max-width:600px){
-    div.card-body{
-      min-height: 180px;
-      min-width: 350px;
-    }
-    div.texte-tarif{
-      width: 350px;
-      font-size: 1.15rem;
-    }
-    .sub-title{
-      font-size: 2rem !important;
-    }
-    main{
-      padding: 0px;
-    }
   }
 
   .cards-container{
@@ -406,6 +380,65 @@ const Wrapper = styled.div`
       }
     }
   }
+  
+  @media (max-width:600px){
+    div.card-body{
+      min-height: 180px;
+      min-width: 350px;
+    }
+    div.texte-tarif{
+      width: 350px;
+      font-size: 1.15rem;
+    }
+    .sub-title{
+      font-size: 2rem !important;
+    }
+    main{
+      padding: 0px;
+    }
+  }
+
+  @media (max-width:595px){
+    div.section-title{
+      font-size:calc(1.8rem + 2.5vw) !important;
+      -webkit-text-stroke:unset;
+      color: #28536b;
+    }
+  }
+
+@media (width:360px) and (height:640px){
+  height: 4205px;
+} 
+@media (width:411px) and (height:731px){
+  height: 4135px;
+}   
+@media (width:411px) and (height:823px){
+  height: 4238px;
+}
+@media (width:375px) and (height:667px){
+  height: 4195px;
+}
+@media (width:414px) and (height:736px){
+  height: 4135px;
+}
+@media (width:375px) and (height:812px){
+  height: 4375px;
+}
+@media (width:768px) and (height:1024px){
+  height: 4165px;
+}
+@media (width:1024px) and (height:1366px){
+  height: 4320px;
+}
+@media (width:540px) and (height:720px){
+  height: 3845px;
+}  
+@media (width:280px) and (height:653px){
+  height: 4515px;
+}
+@media (width:360px) and (height:740px){
+  height: 3890px;
+}
 
 `
 

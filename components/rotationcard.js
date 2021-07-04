@@ -5,7 +5,7 @@ import styled from "styled-components";
 import useWindowSize from "../hooks/useWindowSize";
 import Trait from "./trait";
 
-const RotationCard = ({}) => {
+const RotationCard = () => {
 
   const [dataCard, setDataCard] = useState(undefined)
   const [dataCardFormation, setDataCardFormation] = useState(undefined)
@@ -14,8 +14,10 @@ const RotationCard = ({}) => {
   const [parcoursInView, setParcoursInView] = useState(false)
   const [experiences,setExperiences] = useState(false)
   const [underlineTitle3, setUnderlineTitle3] = useState(0)
+  const [containerParcoursProWidth, setContainerParcoursProWidth] = useState(0)
 
   const parcours = useRef(null)
+  const containerParcoursPro = useRef(null)
 
   const size = useWindowSize()
 
@@ -23,14 +25,18 @@ const RotationCard = ({}) => {
     setUnderlineTitle3(parcours.current.offsetWidth)
   }, [parcoursInView, size])
 
+  useEffect(() => {
+    setContainerParcoursProWidth(containerParcoursPro.current.node.clientWidth)
+  }, [containerParcoursProWidth, size])
+
   useEffect(()=>{
     if(parcoursInView){
       gsap.to(".title-parcours-pro", {
-        y : -100,
+        y : 0,
         duration : 1.2
       })
       gsap.to(".title-parcours-pro", {
-        opacity : 1,
+        autoAlpha : 1,
         duration : 1.8
       })
     }
@@ -85,16 +91,17 @@ const RotationCard = ({}) => {
       setDataCardFormation(event.target.dataset.card)
     }
   }
+  console.log(containerParcoursProWidth)
 
   return (
     <DivWrapper>
-      <InView as='div' className="container-parcours-pro" triggerOnce='true' onChange={(inView, entry)=>{setParcoursInView(inView)}}>
-        <h2 className="title-parcours-pro">
-          <span ref={parcours}>Mon parcours</span>
-          <div className="conteneur-trait-3">
-            <Trait width={`${underlineTitle3}px`} bgColor="#9f7f92" height="8px"/>
-          </div>
+      <InView as='div' className="container-parcours-pro" ref={containerParcoursPro} onChange={(inView, entry)=>{setParcoursInView(inView)}}>
+        <h2 ref={parcours} className="title-parcours-pro">
+          Mon parcours
         </h2>
+        <div className="conteneur-trait-3">
+          <Trait width={`${underlineTitle3}px`} bgColor="#9f7f92" height="8px"/>
+        </div>
         <div className="flex-container" >
           <div className="container-texte-parcours-pro part-1" onClick={(event)=>rotateCardHandler(event)} onMouseLeave={()=>setHoverCard(undefined)}>
             <InView as='div' onChange={(inView, entry)=>setExperiences(inView)} triggerOnce='true'>
@@ -285,13 +292,13 @@ const RotationCard = ({}) => {
           </div>
 
 
-          {/* Eventail FORMATIONS */}
 
+          {/* Eventail FORMATIONS */}
 
           <div className="container-texte-parcours-pro part-2"
             onClick={(event)=>rotateFormationCardHandler(event)}  
             onMouseLeave={()=>setHoverFormationCard(undefined)}
-            style={{top:`${(size.width<775) && (dataCard!==undefined)? "630px":(size.width<775)? "400px" : "0px"}`}}
+            style={{top:`${((containerParcoursProWidth<736) && (dataCard!==undefined))? "930px":(containerParcoursProWidth<736)? "700px" : "0px"}`}}
           > 
             <h3 className="experiences">FORMATIONS</h3>
             <h3 className="experiences-z-index">FORMATIONS</h3>
@@ -457,6 +464,7 @@ const RotationCard = ({}) => {
 }
 
 const DivWrapper = styled.div`
+  height: 100%;
 
   .conteneur-trait-3{
     transform: translateX(-100%);
@@ -465,10 +473,10 @@ const DivWrapper = styled.div`
 
   .container-parcours-pro{
     width: 100%;
-    height: 100vh;
+    height: 1000px;
 
     .title-parcours-pro{
-      transform: translate(0, 150%);
+      transform: translate(0, 100%);
       opacity:0;
       font-family: 'Oxygen', serif;
       text-transform: uppercase;
@@ -476,17 +484,20 @@ const DivWrapper = styled.div`
       color : transparent;
       font-size :clamp(4em, 9vw, 8em);
       text-shadow : none;
+      margin: 0px;
+      text-align: center;
     }
 
     .card-parcours-pro {
       background-color: white;
-      width: 335px;
+      width: 350px;
       padding: 15px 10px;
       border-radius: 10px;
       border: 1px solid grey;
       cursor: pointer; 
       z-index: 2;
       opacity: 0;
+      
 
       ul{
         list-style-type:square;
@@ -531,23 +542,29 @@ const DivWrapper = styled.div`
         padding-top:10px;
       }
     }
-
-    .flex-container{
-      display : flex;
-      flex-direction: row;
-      justify-content: center;
-      width: 100%;
+    .container-texte-parcours-pro.part-2{
+      right: 10vw;
+      transition: all 0.3s ease-out;
       height: 100%;
-      margin: 10vh 0px 20vh 5vw;
+    }
+    .container-texte-parcours-pro.part-1{
+      left: 10vw;
+      transition: all 0.3s ease-out;
+      height: 100%;
+    }
+    .flex-container{
+      width: 100%;
+      height: 800px;
+      margin: 10vh 0px 0vh 0px;
+      position: relative;
 
       .container-texte-parcours-pro{
-        position: relative;
         width: 350px;
         margin-top: 38px;
-        margin-right: 250px;
-        margin-left: 0px;
         font-size: 1.1em;
         font-family: "Oswald";
+        position: absolute;
+        top: 0;
 
         .experiences{
           position: absolute;
@@ -573,30 +590,68 @@ const DivWrapper = styled.div`
     }
       
   }
-@media screen and (max-width: 775px){
-  height: 1550px;
 
-  .flex-container{
-    flex-direction: column !important;
-    align-items: center !important;
-    margin: 0 auto !important;
-    width: 100% !important;
+@media (max-width:560px){
 
-    .container-texte-parcours-pro.part-1{
-      top : -250px;
-      left: 25vw;
-    }
-    .container-texte-parcours-pro.part-2{
-      //top : 630px;
-      left: 25vw;
-    }
+  
+}
+
+@media (max-width: 1340px){
+  .container-texte-parcours-pro.part-2{
+    right:0vw !important;
+  }
+  .container-texte-parcours-pro.part-1{
+    left:0vw !important;
   }
 }
-@media screen and (max-width: 425px){
-  .container-texte-parcours-pro.part-1, .container-texte-parcours-pro.part-2{
-      left: 35vw !important;
-    }
+
+@media (max-width: 1100px){
+  .container-texte-parcours-pro.part-2{
+    right:-5vw !important;
+  }
 }
+
+@media (max-width:960px){
+  height: 100% !important;
+
+  .title-parcours-pro{
+    font-size: calc(1.5rem + 4.8vw) !important;
+    -webkit-text-stroke: 2px whitesmoke !important;
+  }
+  .flex-container{
+    height: 1200px !important;
+  }
+  .container-parcours-pro{
+    height: 100%;
+  }
+    
+  .container-texte-parcours-pro.part-2, .container-texte-parcours-pro.part-1{
+    left: 15vw !important;
+  }
+ 
+}
+
+@media (max-width:690px){  
+  .container-texte-parcours-pro.part-2, .container-texte-parcours-pro.part-1{
+    left: 2vw !important;
+  }
+}
+
+@media (max-width:560px){  
+  .title-parcours-pro{
+    //font-size: calc(1.5rem + 3.4vw) !important;
+    -webkit-text-stroke: unset !important;
+    color: whitesmoke !important;
+  }
+}
+
+@media (max-width:465px){  
+  .container-texte-parcours-pro.part-2, .container-texte-parcours-pro.part-1{
+    left: -12vw !important;
+  }
+}
+
+
 `
 
 export default RotationCard;

@@ -8,7 +8,6 @@ const HomeMain = () => {
   const [titleWidth, setTitleWidth] = useState(0)
   const [flipEnfant, setFlipEnfant] = useState(false)
   const [flipAdulte, setFlipAdulte] = useState(false)
-  const [loaded, setLoaded] = useState(false)
   const [positionFlipEnfant, setPositionFlipEnfant] = useState({top : 0, left : 0})
   const [positionFlipAdulte, setPositionFlipAdulte] = useState({top : 0, left : 0})
 
@@ -103,8 +102,7 @@ const HomeMain = () => {
   },[])
 
   useEffect(()=>{
-    setTitleWidth(nomH1.current.offsetWidth)
-    
+    setTitleWidth(nomH1.current.offsetWidth)  
   },[titleWidth, size])
 
   useEffect(()=>{
@@ -119,12 +117,12 @@ const HomeMain = () => {
 
   return (
     <WrapperSection >      
-      <div id='banner' className="banner" data-scroll data-scroll-speed="-2.5" ref={banner}>
+      <div id='banner' className="banner" ref={banner}>
         <img src="/images/20210422_144500.jpg"/>
       </div>
         
       <div className="banner-container">
-        <div className='wall-menu' ref={wallMenu} style={{marginRight:`${size.height>700 ? "15px":""}`}}>
+        <div className='wall-menu' ref={wallMenu}>
           <div className="vignette" ref={photoId}>
             <img src='/images/20210611_104823mod.jpg' alt='portrait'/>
 
@@ -159,17 +157,17 @@ const HomeMain = () => {
           <div className={`card-container ${flipEnfant ? "flip back" : "front"}`}>
             <div className="recto">
 
-              <img src="/images/20210422_144500.jpg" alt='bg' style={{top:(positionFlipEnfant.top)*(-1), left:`${(positionFlipEnfant.left-20)*(-1)}px`, backfaceVisibility : "hidden"}} data-scroll data-scroll-speed="-2.5"/>
+              <img src="/images/20210422_144500.jpg" alt='bg' style={{top:(positionFlipEnfant.top)*(-1), left:`${(positionFlipEnfant.left-25)*(-1)}px`, backfaceVisibility : "hidden"}}/>
               <h2 ref={question2}>...chez l'enfant ?</h2>
               <i ref={icon2} className="fas fa-arrow-circle-right fa-3x" style={{cursor:'pointer'}} onClick={()=>setFlipEnfant(prev=> !prev)}></i>
             </div>
             <div className="verso">
               <div>Dans le cadre :</div>
               <ul>
-                <li style={{display:`${(size.height<910)||(size.width<675) ? "none":""}`}}>d'un bilan psychomoteur</li>
-                <li style={{display:`${(size.height<730)||(size.width<675) ? "none":""}`}}>d'un dépistage des troubles du spectre autistique</li>
+                <li className="hidden-height-910 hidden-width-675">d'un bilan psychomoteur</li>
+                <li className="hidden-height-730 hidden-width-675">d'un dépistage des troubles du spectre autistique</li>
                 <li>des troubles graphomoteurs</li>
-                <li style={{display:`${(size.height<855)||(size.width<675) ? "none":""}`}}>des troubles de la concentration et TDA/H</li>
+                <li className="hidden-height-855 hidden-width-675">des troubles de la concentration et TDA/H</li>
                 <li>de troubles de la coordination, maladresse et dyspraxie</li>
                 <li>et d'autres troubles liés au développement psychomoteur dans l'enfance...</li>
               </ul>
@@ -184,7 +182,7 @@ const HomeMain = () => {
           <div className={`card-container ${flipAdulte ? "flip back" : "front"}`}>
             <div className="recto">
 
-              <img src="/images/20210422_144500.jpg" alt='bg' style={{top:(positionFlipAdulte.top)*-1, left:`${(positionFlipAdulte.left-15)*-1}px`, backfaceVisibility : "hidden"}} data-scroll data-scroll-speed="-2.5"/>
+              <img src="/images/20210422_144500.jpg" alt='bg' style={{top:(positionFlipAdulte.top)*-1, left:`${(positionFlipAdulte.left-25)*-1}px`, backfaceVisibility : "hidden"}}/>
               
               <h2 ref={question3}>...chez l'adulte ?</h2>
               <i ref={icon3} className="fas fa-arrow-circle-right fa-3x" style={{cursor:'pointer'}} onClick={()=>setFlipAdulte(prev=> !prev)}></i>
@@ -192,12 +190,12 @@ const HomeMain = () => {
             <div className={`verso`} style={{zIndex : '10'}}>
               <div>Dans le cadre :</div>
               <ul>
-                <li style={{display:`${(size.height<910)||(size.width<675) ? "none":""}`}}>de la gestion du stress</li>
-                <li style={{display:`${(size.height<730)||(size.width<675)? "none":""}`}}>de troubles psychosomatiques</li>
+                <li className="hidden-height-910 hidden-width-675">de la gestion du stress</li>
+                <li className="hidden-height-730 hidden-width-675">de troubles psychosomatiques</li>
                 <li>de troubles tonico-émotionnels (tics, bégaiement)</li>
-                <li style={{display:`${(size.height<730)||(size.width<675) ? "none":""}`}}>de symptômes anxio-dépressifs</li>
+                <li className="hidden-height-730 hidden-width-675">de symptômes anxio-dépressifs</li>
                 <li>d'un trouble du comportement alimentaire</li>
-                <li style={{display:`${(size.height<855)||(size.width<675) ? "none":""}`}}>de difficultés émotionnelles et relationnelles</li>
+                <li className="hidden-height-855 hidden-width-675">de difficultés émotionnelles et relationnelles</li>
                 <li>et d'autres troubles psycho-émotionnelles de l'âge adulte...</li>
               </ul>
               <div className='button'>
@@ -516,7 +514,16 @@ const WrapperSection = styled.section`
   }
 }
 
+@media (min-height: 700px){
+  .wall-menu{
+    margin-right: 15px;
+  }
+}
+
 @media (max-width: 675px){
+  .hidden-width-675{
+    display : none;
+  }
   .card-flip{
     height : 300px;
     left : 50vw !important;
@@ -555,6 +562,23 @@ const WrapperSection = styled.section`
   }
 }
 @media (max-width: 575px){
+  .profession{
+    overflow-x: visible !important;
+    overflow-y: hidden !important;
+  }
+  .banner-text{
+    text-align: center !important;
+    //overflow: hidden !important;
+
+    h1{
+      margin-left: 0px !important;
+      width : 120% !important;
+    }
+
+  }
+  .main-trait{
+    margin-left: 0px !important;
+  }
   .wall-menu{
     display: none;
   }
@@ -575,6 +599,29 @@ const WrapperSection = styled.section`
 }
 
 //Max-height
+@media (max-height:910px){
+  li.hidden-height-910{
+    display: none !important;
+  }
+}
+@media (max-height:855px){
+  .hidden-height-855{
+    display: none !important;
+  }
+}
+
+@media (max-height:730px){
+  .hidden-height-730{
+    display: none !important;
+  }
+}
+
+@media (max-height:730px){
+  .hidden-height-730{
+    display: none !important;
+  }
+}
+
 @media (max-height:700px){
   div.banner-container{
     top: 80px;

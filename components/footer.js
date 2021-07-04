@@ -49,9 +49,10 @@ const Footer = ({color}) => {
           </div>
           
           <div className='adresse-icone'>
-            <i className="fas fa-map-marked-alt fa-2x adresse" style={{transform:'translateX(-5px)', marginRight:"5px", }}/><span>Espace paramédical du Devenson<br/>
+            <i className="fas fa-map-marked-alt fa-2x adresse" style={{transform:'translateX(-5px)', marginRight:"5px", }}/>
+            <span><a href="https://www.google.com/maps/place/Espace+param%C3%A9dical+du+Devenson+Alpilles+Mouries+Kinesitherapeute+13/@43.693547,4.854739,15z/data=!4m2!3m1!1s0x0:0xab1fec3575c9db61?sa=X&ved=2ahUKEwi9oMbBwMnxAhUHmRQKHcehC5wQ_BIwC3oECDsQBQ" target='_blank'>Espace paramédical du Devenson<br/>
             <em>Route de Maussane D17<br/>
-            13890 Mouriès &nbsp;</em></span>
+            13890 Mouriès &nbsp;</em></a></span>
           </div>
         </InView> 
       </div>
@@ -104,7 +105,9 @@ const DivWrapper = styled.div`
       opacity : 1;
     }
     .card-contact{
+      padding:20px 0px;
       border : 2px solid #745869;
+      height : auto;
       font-family: 'Oswald', sans-serif;
       transform : translateY(50%);
       transition : transform 0.8s ease-out, opacity 1s ease-out;
@@ -118,12 +121,16 @@ const DivWrapper = styled.div`
     .message span{
       cursor: pointer;
     }
-    .adresse-icone{
+    .adresse-icone{       
       display:none;
+
+      a:hover, a:focus{
+        filter : brightness(125%) !important;
+        text-decoration : underline;
+      }
       i{
         color: #745869;
       }
-
       span{
         font-size : 2.2vh;
       }
@@ -137,6 +144,7 @@ const DivWrapper = styled.div`
     }
   }
 
+  
   .banner-adresse{
     display : flex;
     position : absolute;
@@ -157,6 +165,8 @@ const DivWrapper = styled.div`
       transition : all 1s ease-out;
       transition-delay : 0.5s;
       transition-property : background-color, color;
+
+      
     }
     .iframe-container{
       overflow : hidden;
@@ -179,8 +189,8 @@ const DivWrapper = styled.div`
     color : #7f5f72 ;
   }
 
-  @media screen and (max-width: 1160px){
-    height : 75vh;
+  @media (max-width: 1160px){
+    height : 750px !important;
 
     .banner-adresse{
       display : none;
@@ -189,9 +199,9 @@ const DivWrapper = styled.div`
       display :flex !important;
     }
   }
-  @media screen and (max-height: 700px){
-    height : 75vh;
-  }
+  /* @media (max-height: 700px){
+    height : 70vh;
+  } */
 
 `
 export default Footer;

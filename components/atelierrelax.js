@@ -19,9 +19,7 @@ const AtelierRelax = () => {
   const size = useWindowSize()
 
   const trait = useRef(null)
-  const trait2 = useRef(null)
   const sectionTitle = useRef(null)
-  const sectionTitle2 = useRef(null)
   const bgImage = useRef(null)
   const reponse1 = useRef(null)
   const reponse2 = useRef(null)
@@ -99,12 +97,12 @@ const AtelierRelax = () => {
 
   return (  
     <SectionWrap id="relaxation">
-      <InView as="div" threshold="0.25" onChange={(inView, entry)=>setSectionInView(inView)}>
+      <InView as="div" threshold="0.15" onChange={(inView, entry)=>setSectionInView(inView)}>
         <div className="section-title" ref={sectionTitle}>
           <h2>
             <span>Atelier Relaxation</span>
           </h2>
-          <div className="trait" ref={trait} style={{marginTop : `${size.width <1400 ? "20px" : "50px"}`, position:"static"}}>
+          <div className="trait" ref={trait}>
             <Trait width={titleWidth} bgColor="#326886" height={`${size.width <1400 ? "5px" : "8px"}`}/>
           </div> 
         </div>
@@ -256,12 +254,20 @@ const SectionWrap = styled.section`
     .trait{
       transform : translateX(-125%);
       z-index: -1;
+      margin-top:50px ;
+      position: static;
     }
   }
 
   .names-flexbox{
     .names{
       min-width: 200px;
+    }
+  }
+
+  @media (max-width: 1400px){
+    .trait{
+      margin-top:20px ;
     }
   }
 

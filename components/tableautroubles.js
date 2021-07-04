@@ -63,7 +63,7 @@ const TableauTroubles = () => {
   }
 
   return (
-    <InView as="div" threshold="0.5" onChange={(inView)=>setTableInview(inView)}>
+    <InView as="div" threshold="0.3" onChange={(inView)=>setTableInview(inView)}>
       <DivWrapper>
         <div id="container-tableau-enfant" ref={troubleContainer}>
           <div className="tableau-troubles">
@@ -104,7 +104,7 @@ const TableauTroubles = () => {
                 <div className="bg-image">
                   <img src="/images/public-bebe.jpg"/>
                 </div>
-                <div className="icon" style={{width:`${size.width}px`}}>
+                <div className="icon">
                   <div>Enfants et adolescents</div>
                   <i className="fas fa-caret-square-right fa-4x icon right" onClick={()=>setVignetteEnfant('2')}></i>
                 </div>
@@ -308,7 +308,7 @@ const DivWrapper = styled.div`
     transition: opacity 0.3s ease-out;
     width : 400px;
     margin-right: 20px;
-    
+    width: 100vw;
     
     div{
       width: 110px;

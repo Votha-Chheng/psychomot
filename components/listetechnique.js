@@ -37,8 +37,8 @@ const ListeTechnique = ({image, legende, children, classCss}) => {
   },[listeInView])
   
   return (
-    <InView as="div" className={classCss} threshold={`${size.width<1200 ? "0.1" : "1"}`} onChange={(inView, entry)=>setListeInView(inView)}>
-      <DivWrap>     
+    <InView as="div" className={classCss} threshold="0.1" onChange={(inView, entry)=>setListeInView(inView)}> 
+      <DivWrap>
         <div className="photo-container" style={{transform:"rotateX(90deg)"}}>
           <img src={`/images/${image}`}/> 
         </div>
@@ -181,7 +181,7 @@ const DivWrap = styled.div`
     opacity:0;
   }
 
-  @media screen and (max-width: 1140px){
+  @media (max-width: 1140px){
     margin-bottom: 250px;
     .vignette{
       left:30%;
@@ -193,7 +193,14 @@ const DivWrap = styled.div`
       font-size: calc(1.2rem + 1.5vw);
     }
   }
-  @media screen and (max-width: 740px){
+
+  @media (max-width: 1024px){
+    .photo-container{
+      transform: rotateX('0deg') !important;
+    }
+  }
+
+  @media (max-width: 740px){
     flex-direction: column-reverse;
     .photo-container{
       min-width: unset;
@@ -212,7 +219,7 @@ const DivWrap = styled.div`
       width: 350px;
     }
   }
-  @media screen and (max-width: 400px){
+  @media (max-width: 400px){
     .vignette{
       left:0px;
       top : 300px;

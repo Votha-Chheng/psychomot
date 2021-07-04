@@ -13,13 +13,11 @@ const AtelierBarkley = () => {
   const [reponseHeight3, setReponseHeight3] = useState(0)
   const [reponseHeight4, setReponseHeight4] = useState(0)
   const [reponseHeight5, setReponseHeight5] = useState(0)
-  // const [reponseHeight6, setReponseHeight6] = useState(0)
   const [showReponse, setShowReponse] = useState("0")
 
   const size = useWindowSize()
 
   const trait = useRef(null)
-  const trait2 = useRef(null)
   const sectionTitle = useRef(null)
   const sectionTitle1 = useRef(null)
   const sectionTitle2 = useRef(null)
@@ -113,8 +111,8 @@ const AtelierBarkley = () => {
         <h2>
           <span ref={sectionTitle2}>DE TYPE BARKLEY</span>
         </h2>
-        <div className="trait" ref={trait} style={{marginTop : `${size.width <1400 ? "20px" : "50px"}`, position:"static"}}>
-          <Trait width={titleWidth} bgColor="#326886"  height={`${size.width <1400 ? "5px" : "8px"}`}/>
+        <div className="trait" ref={trait} >
+          <Trait width={titleWidth} bgColor="#326886" height={`${size.width <1400 ? "5px" : "8px"}`}/>
         </div>
       </div>
 
@@ -261,11 +259,19 @@ const SectionWrap = styled.section`
     .trait{
       transform : translateX(-125%);
       z-index: -1;
+      margin-top:50px ;
+      position:static;
+    }
+  }
+
+  @media (max-width: 1400px){
+    .trait{
+      margin-top:20px ;
     }
   }
 
 
-  @media screen and (max-width:1195px){
+  @media (max-width:1195px){
     .backgroung-image{
       img{
         height : 900px;
@@ -281,7 +287,7 @@ const SectionWrap = styled.section`
     }
   }
 
-  @media screen and (max-width:775px){
+  @media (max-width:775px){
     .container-guidance{
       height : 1100px !important;
     }
@@ -313,7 +319,7 @@ const SectionWrap = styled.section`
     }
   }
 
-  @media screen and (max-width:590px){
+  @media (max-width:590px){
     .section-title{
       h2{
         font-size :clamp(1.15em, 4.5vw, 3.5em);
@@ -321,7 +327,7 @@ const SectionWrap = styled.section`
     }
   }
 
-  @media screen and (max-width:435px){
+  @media (max-width:435px){
     .container-guidance{
       height : 1350px !important;
     }

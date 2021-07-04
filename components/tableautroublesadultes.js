@@ -65,7 +65,7 @@ const TableauTroublesAdultes = () => {
   }
 
   return (
-    <InView as="div" threshold="0.5" onChange={(inView)=>setTableInview(inView)}>
+    <InView as="div" threshold="0.3" onChange={(inView)=>setTableInview(inView)}>
       <DivWrapper>
         <div id="container-tableau-adulte" ref={troubleContainer}>
           <div className="tableau-troubles">
@@ -106,8 +106,8 @@ const TableauTroublesAdultes = () => {
                 <div className="bg-image-2">
                   <img src="/images/public-adulte.jpg"/>
                 </div>
-                <div className="icon" style={{width:`${size.width}px`, textAlign:"right"}}>
-                  <div>Personnes âgées</div>
+                <div className="icon" style={{width:"100vw", textAlign:"right"}}>
+                  <div style={{width: "100px", position: "static", paddingTop: "10px", paddingLeft: "10px", fontFamily: '"Oxygen", sans-serif', fontStyle: "italic", color: "#adadad",marginRight: "10px"}}>Personnes âgées</div>
                   <i className="fas fa-caret-square-right fa-4x icon right" onClick={()=>setVignetteEnfant('2')}></i>
                 </div>
                 <div className="texte">
@@ -130,7 +130,7 @@ const TableauTroublesAdultes = () => {
                 </div>
                 <div className="icon left">
                   <i className="fas fa-caret-square-left fa-4x icon left" onClick={()=>setVignetteEnfant('1')}/>
-                  <div>Adultes</div>
+                  <div style={{width: "100px", position: "static", paddingTop: "20px", paddingLeft: "0px", fontFamily: '"Oxygen", sans-serif', fontStyle: "italic", color: "#adadad"}}>Adultes</div>
                 </div>
                 <div className="texte">
                   <h3 className="title-responsive">Chez les personnes âgées</h3>
@@ -312,6 +312,8 @@ const DivWrapper = styled.div`
     transition: opacity 0.3s ease-out;
     width : 400px;
     margin-right: 20px;
+    width:100vw;
+    text-align:right
     
     div{
       width: 100px;

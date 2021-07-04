@@ -1,9 +1,10 @@
+import gsap from "gsap";
 import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import useWindowSize from "../hooks/useWindowSize";
 import Trait from "./trait";
 import {InView} from "react-intersection-observer";
-import {gsap} from "gsap";
+
 
 const PratiqueSection1 = ({backgroundColor}) => {
 
@@ -35,7 +36,6 @@ const PratiqueSection1 = ({backgroundColor}) => {
       y:0,
       delay : 0.2
     })
-
     gsap.to('.conteneur-bg-image', {
       opacity: 0.15,
       duration : 0.5,
@@ -71,9 +71,9 @@ const PratiqueSection1 = ({backgroundColor}) => {
 
   useEffect(()=>{
     if(question1){
-      gsap.to('.question-1', {
+      gsap.to('#question-1', {
         opacity: 1,
-        x:"50%",
+        x:0,
         duration : 1
       })
       gsap.to('.reponse-1', {
@@ -104,20 +104,23 @@ const PratiqueSection1 = ({backgroundColor}) => {
   }, [question2])
 
   useEffect(()=>{
-    if(question3){
-      gsap.to('.question-3', {
-        opacity: 1,
-        x:"50%",
-        duration : 1
-      })
-      gsap.to('.reponse-3', {
-        opacity: 1,
-        x:0,
-        duration : 1,
-        delay : 0.2, 
-        ease : " Power3.easeOut"
-      })
-    }
+    setTimeout(()=>{
+      if(question3){
+        gsap.to('.question-3', {
+          opacity: 1,
+          x:"50%",
+          duration : 1
+        })
+        gsap.to('.reponse-3', {
+          opacity: 1,
+          x:0,
+          duration : 1,
+          delay : 0.2, 
+          ease : " Power3.easeOut"
+        })
+      }
+    },500)
+    
   }, [question3])
 
   useEffect(()=>{
@@ -137,20 +140,22 @@ const PratiqueSection1 = ({backgroundColor}) => {
     }
   }, [question4])
 
+  console.log(question3)
+
   return (
     <Wrapper style={{backgroundColor}}>
       <div className="section-title" ref={sectionTitle}>
         <h2>
-          <span>Le bilan psychomoteur</span>  
-        </h2>
-        <div className="trait" ref={trait} style={{margin : "50px 0 0px 0", position:"static"}}>
-          <Trait width={titleWidth} bgColor="#326886" height="8px"/>
-        </div> 
+          Le bilan psychomoteur
+        </h2>  
+      </div>
+      <div className="trait" ref={trait} style={{margin : "50px 0 0px 0", position:"static"}}>
+        <Trait width={titleWidth} bgColor="#326886" height="8px"/>
       </div>
       
       <section>
         <div className="conteneur-bg-image">
-          <img src='/images/20210611_111302.jpg'/>
+          <img src='/images/20210611_111302.jpg' alt="schéma du bilan psychomoteur"/>
         </div>
         <div className="bilan-psy-schema">
           <div className="img-container">
@@ -159,8 +164,8 @@ const PratiqueSection1 = ({backgroundColor}) => {
           <small>Schéma tiré du site <a href="https://www.bloghoptoys.fr/" target="_blank">www.bloghoptoys.fr</a>, blog sur l'inclusion.</small>
         </div>
 
-        <InView className="question-reponse" as="div" threshold="1" onChange={(inView, entry)=>setQuestion1(inView)}>
-          <div className="question question-1">
+        <InView className="question-reponse" as="div" threshold="1" onChange={(inView)=>setQuestion1(inView)}>
+          <div className="question" id="question-1">
             <div className="conteneur-question">
               C'est quoi ?
             </div> 
@@ -174,7 +179,7 @@ const PratiqueSection1 = ({backgroundColor}) => {
             </div> 
           </div>
         </InView>
-        <InView className="question-reponse" as="div" threshold="0.5" onChange={(inView, entry)=>setQuestion2(inView)}>
+        <InView className="question-reponse" as="div" threshold="1" onChange={(inView, entry)=>setQuestion2(inView)}>
           <div className="question question-2">
             <div className="conteneur-question">
               Comment ça se passe ?

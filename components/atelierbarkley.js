@@ -236,7 +236,6 @@ const SectionWrap = styled.section`
     padding: 0px 10px;
     text-transform: uppercase;
     -webkit-text-stroke : 4px #28536b;
-    //color: #28536b;
     color: transparent;
     font-family: 'Oxygen', sans-serif;
     letter-spacing: 1.5px;
@@ -264,88 +263,7 @@ const SectionWrap = styled.section`
     }
   }
 
-  @media (max-width: 1400px){
-    .trait{
-      margin-top:20px ;
-    }
-  }
 
-
-  @media (max-width:1195px){
-    .backgroung-image{
-      img{
-        height : 900px;
-        width : auto !important;
-      }
-    }
-    .section-title{
-      -webkit-text-stroke : 2px #28536b;
-      h2{
-        font-size :clamp(2em, 5.5vw, 3.5em);
-        margin-bottom: 0px !important;
-      }
-    }
-  }
-
-  @media (max-width:775px){
-    .container-guidance{
-      height : 1100px !important;
-    }
-    .section-title{
-      -webkit-text-stroke : unset;
-      color: #28536b;
-      h2{
-        font-size :clamp(2em, 5.5vw, 3.5em);
-        margin-bottom: 0px !important;
-      }
-    }
-    .guidance{
-      .flexbox{
-        flex-direction: column;
-
-        .intro, .container-accordions{
-          min-width : 100%;
-        }
-        .container-accordions{
-          margin-left: 0px !important;
-        }
-      }  
-    }
-    .backgroung-image{
-      
-      img{
-        height : 1100px !important;
-      }
-    }
-  }
-
-  @media (max-width:590px){
-    .section-title{
-      h2{
-        font-size :clamp(1.15em, 4.5vw, 3.5em);
-      }
-    }
-  }
-
-  @media (max-width:435px){
-    .container-guidance{
-      height : 1350px !important;
-    }
-    .backgroung-image{
-      img{
-        height : 1350px !important;
-      }
-    }
-    .question-reponse .question h3{
-      font-size: 1em !important;
-    }
-    .names-flexbox{
-      flex-direction:column !important;
-      div.name-sandie{
-        margin-left:0px;
-      } 
-    }
-  }
 
   .names-flexbox{
     display:flex; 
@@ -475,6 +393,89 @@ const SectionWrap = styled.section`
           }  
         }
       }
+    }
+  }  
+  
+  @media (max-width: 1400px){
+    .trait{
+      margin-top:20px ;
+    }
+  }
+
+
+  @media (max-width:1195px){
+    .backgroung-image{
+      img{
+        height : 900px;
+        width : auto !important;
+      }
+    }
+    .section-title{
+      -webkit-text-stroke : 2px #28536b;
+      h2{
+        font-size :clamp(2em, 5.5vw, 3.5em);
+        margin-bottom: 0px !important;
+      }
+    }
+  }
+
+  @media (max-width:775px){
+    .container-guidance{
+      height : 1100px !important;
+    }
+    .section-title{
+      -webkit-text-stroke : unset;
+      color: #28536b;
+      h2{
+        font-size :clamp(2em, 5.5vw, 3.5em);
+        margin-bottom: 0px !important;
+      }
+    }
+    .guidance{
+      .flexbox{
+        flex-direction: column;
+
+        .intro, .container-accordions{
+          min-width : 100%;
+        }
+        .container-accordions{
+          margin-left: 0px !important;
+        }
+      }  
+    }
+    .backgroung-image{
+      
+      img{
+        height : 1100px !important;
+      }
+    }
+  }
+
+  @media (max-width:590px){
+    .section-title{
+      h2{
+        font-size :clamp(1.15em, 4.5vw, 3.5em);
+      }
+    }
+  }
+
+  @media (max-width:435px){
+    .container-guidance{
+      height : 1350px !important;
+    }
+    .backgroung-image{
+      img{
+        height : 1350px !important;
+      }
+    }
+    .question-reponse .question h3{
+      font-size: 1em !important;
+    }
+    .names-flexbox{
+      flex-direction:column !important;
+      div.name-sandie{
+        margin-left:0px;
+      } 
     }
   }
 `

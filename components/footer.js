@@ -199,9 +199,6 @@ const DivWrapper = styled.div`
       display :flex !important;
     }
   }
-  /* @media (max-height: 700px){
-    height : 70vh;
-  } */
 
 `
 export default Footer;

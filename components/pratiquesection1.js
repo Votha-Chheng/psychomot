@@ -13,6 +13,7 @@ const PratiqueSection1 = ({backgroundColor}) => {
   const [question2, setQuestion2] = useState(false)
   const [question3, setQuestion3] = useState(false)
   const [question4, setQuestion4] = useState(false)
+  const [schemaInView, setSchemaInView] = useState(false)
   
   const size = useWindowSize()
 
@@ -40,17 +41,6 @@ const PratiqueSection1 = ({backgroundColor}) => {
       opacity: 0.15,
       duration : 0.5,
       delay : 1
-    })
-    gsap.to('.img-container', {
-      opacity: 1,
-      duration : 0.5,
-      delay : 1.2
-    })
-    gsap.to('small', {
-      opacity: 1,
-      duration : 0.5,
-      x:0,
-      delay : 1.2
     })
 
     gsap.to('.image-frise', {
@@ -104,23 +94,36 @@ const PratiqueSection1 = ({backgroundColor}) => {
   }, [question2])
 
   useEffect(()=>{
-    setTimeout(()=>{
-      if(question3){
-        gsap.to('.question-3', {
-          opacity: 1,
-          x:"50%",
-          duration : 1
-        })
-        gsap.to('.reponse-3', {
-          opacity: 1,
-          x:0,
-          duration : 1,
-          delay : 0.2, 
-          ease : " Power3.easeOut"
-        })
-      }
-    },500)
-    
+    if(schemaInView){
+      gsap.to('.img-container', {
+        opacity: 1,
+        duration : 0.5,
+        delay : 1.2
+      })
+      gsap.to('small', {
+        opacity: 1,
+        duration : 0.5,
+        x:0,
+        delay : 1.2
+      })
+    }
+  }, [schemaInView])
+
+  useEffect(()=>{
+    if(question3){
+      gsap.to('.question-3', {
+        opacity: 1,
+        x:"50%",
+        duration : 1
+      })
+      gsap.to('.reponse-3', {
+        opacity: 1,
+        x:0,
+        duration : 1,
+        delay : 0.2, 
+        ease : " Power3.easeOut"
+      })
+    }
   }, [question3])
 
   useEffect(()=>{
@@ -157,12 +160,13 @@ const PratiqueSection1 = ({backgroundColor}) => {
         <div className="conteneur-bg-image">
           <img src='/images/20210611_111302.jpg' alt="schéma du bilan psychomoteur"/>
         </div>
-        <div className="bilan-psy-schema">
+
+        <InView className="bilan-psy-schema" threshold='0.5' onChange={(inView)=>setSchemaInView(inView)}>
           <div className="img-container">
-            <img src="/images/Bilan-psychomoteur.png"/>
+            <img src="/images/Bilan-psychomoteur.png" alt="schema du bilan psychomoteur"/>
           </div>
           <small>Schéma tiré du site <a href="https://www.bloghoptoys.fr/" target="_blank">www.bloghoptoys.fr</a>, blog sur l'inclusion.</small>
-        </div>
+        </InView>
 
         <InView className="question-reponse" as="div" threshold="1" onChange={(inView)=>setQuestion1(inView)}>
           <div className="question" id="question-1">
@@ -175,7 +179,6 @@ const PratiqueSection1 = ({backgroundColor}) => {
               <p>
                 Un bilan psychomoteur est une série d'entre&shy;tiens réalisée par la psy&shy;chomo&shy;tricienne qui s'ef&shy;fectue avant tout début de soin ou de suivi. <b>Il est à noter que ce bilan ne s'ef&shy;fectue que sur prescrip&shy;tion médi&shy;cale.</b>
               </p>
-              
             </div> 
           </div>
         </InView>

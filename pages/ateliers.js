@@ -63,7 +63,7 @@ const ateliers = () => {
               <AtelierRelax/>
 
               <div className="separateur" ref={separationWidthRef} style={{backgroundColor : `${footerInView? "#9f7f92" : "transparent"}`, width:"100%"}}/>
-              <InView threshold="0.9" onChange={(inView, entry)=>setFooterInView(inView) }>
+              <InView className="footer-container" threshold="0.9" onChange={(inView, entry)=>setFooterInView(inView) }>
                 <Footer color="#9f7f92"/>
               </InView>
               
@@ -116,6 +116,9 @@ const DivWrapper = styled.div`
     &:hover{
       opacity: 0.6;
     }
+  }
+  .footer-container{
+    height: 100%;
   }
 
   //Position sticky elements when locomotive scroll doesn't work

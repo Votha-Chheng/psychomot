@@ -112,12 +112,12 @@ const Wrapper = styled.div`
 //Position sticky elements when locomotive scroll doesn't work
 @media (max-width: 1024px){
   width: 100vw !important;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
 
   div.menu-container{
     position: fixed !important; 
-    top : 0;
-    left : 0;
+    top : 0 !important;
+    left : 0 !important;
   }
 }
   

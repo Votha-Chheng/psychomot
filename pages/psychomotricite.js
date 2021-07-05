@@ -39,7 +39,7 @@ const psychomotricitePage = () => {
               </InView>
               
               <div className="separateur" style={{backgroundColor:`${(partTwoInview ||(partOneInview && partTwoInview)) ? "#28536b" : partOneInview ?"#9f7f92" : partThreeInview ? "#9f7f92" : "#28536b" }`}}/>
-              <InView as="div" threshold="0.15" onChange={(inView)=>setPartThreeInView(inView)}>
+              <InView as="div" className="footer-container" threshold="0.15" onChange={(inView)=>setPartThreeInView(inView)}>
                 <Footer color="#9f7f92"/>
               </InView>
               
@@ -78,6 +78,9 @@ const Wrapper = styled.div`
     width: 560px;
     left: 15px;
     }
+  }
+  .footer-container{
+    height: 100%;
   }
 
   //Position sticky elements when locomotive scroll doesn't work

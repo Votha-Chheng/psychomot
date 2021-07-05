@@ -63,7 +63,7 @@ const Footer = ({color}) => {
 }
 
 const DivWrapper = styled.div`
-  min-height : 60vh;
+  min-height : 600px;
   background-color : white;
   position: relative;
 
@@ -190,7 +190,7 @@ const DivWrapper = styled.div`
   }
 
   @media (max-width: 1160px){
-    height : 750px !important;
+    min-height : 600px !important;
 
     .banner-adresse{
       display : none;
@@ -198,6 +198,14 @@ const DivWrapper = styled.div`
     .adresse-icone{
       display :flex !important;
     }
+  }
+
+  //Height
+  @media (max-height : 790px) and (min-width:1024px) {
+    min-height: 480px !important;
+  }
+  @media (max-height : 650px) and (min-width:1024px){
+    min-height: 420px !important;
   }
 
 `

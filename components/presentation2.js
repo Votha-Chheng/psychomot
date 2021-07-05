@@ -92,11 +92,12 @@ const presentation2 = () => {
 }
 
 const ArticleWrap = styled.article`
+  padding-top:250px;
+  
   .specificity-container{
     width: 80%; 
-    margin: 0px auto;
     margin-bottom: 25vh;
-    margin-left: 175px;
+    margin-left: 175px; 
   }
   .title-parcours{
     font-size : clamp(4rem, 7vw, 7.5rem);

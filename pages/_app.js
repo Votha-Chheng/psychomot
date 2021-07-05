@@ -3,11 +3,6 @@ import { useEffect, useState } from 'react'
 import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }) {
-  const [loaded, setLoaded] = useState(false)
-
-  useEffect(()=>{
-    setTimeout(()=>setLoaded(true), 500)
-  },[loaded])
 
   return (
     <>
@@ -36,9 +31,7 @@ function MyApp({ Component, pageProps }) {
 
       <main data-scroll-container className='container'>
         {
-          !loaded
-          ? <div></div>
-          : <Component {...pageProps} />
+          <Component {...pageProps} />
         }
         
       </main>

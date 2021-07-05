@@ -182,7 +182,7 @@ const PratiqueSection1 = ({backgroundColor}) => {
             </div> 
           </div>
         </InView>
-        <InView className="question-reponse" as="div" threshold="1" onChange={(inView, entry)=>setQuestion2(inView)}>
+        <InView className="question-reponse" as="div" threshold="0.5" onChange={(inView, entry)=>setQuestion2(inView)}>
           <div className="question question-2">
             <div className="conteneur-question">
               Comment ça se passe ?

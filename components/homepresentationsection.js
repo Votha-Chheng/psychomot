@@ -52,12 +52,12 @@ const HomePresentationSection = ({sectionInView}) => {
         </InView>
         
         <h3 className="bandeau up" data-scroll data-scroll-direction="horizontal" data-scroll-speed="15">
-          épanouissement - relations aux autres - connaissance de soi - équilibre - gestion des émotions - relaxation - méditation - potentialité - déleveloppement personnel
-          épanouissement - relations aux autres - connaissance de soi - équilibre - gestion des émotions - relaxation - méditation - potentialité - déleveloppement personnel
+          épanouissement - relations aux autres - connaissance de soi - équilibre - gestion des émotions - relaxation - méditation - potentialité - développement personnel - 
+          épanouissement - relations aux autres - connaissance de soi - équilibre - gestion des émotions - relaxation - méditation - potentialité - développement personnel
         </h3>
         <h3 className="bandeau down" data-scroll data-scroll-direction="horizontal" data-scroll-speed="-15">
-          relations aux autres - équilibre - potentialité - méditation - relaxation - épanouissement - gestion des émotions - déleveloppement personnel - connaissance de soi
-          relations aux autres - équilibre - potentialité - méditation - relaxation - épanouissement - gestion des émotions - déleveloppement personnel - connaissance de soi
+          relations aux autres - équilibre - potentialité - méditation - relaxation - épanouissement - gestion des émotions - développement personnel - connaissance de soi - 
+          relations aux autres - équilibre - potentialité - méditation - relaxation - épanouissement - gestion des émotions - développement personnel - connaissance de soi
         </h3>
 
         <InView as='div' onChange={(inView)=>setSpecificityInView(inView)}>
@@ -155,16 +155,42 @@ const SectionWrapper = styled.section`
 
 @media (max-width:769px){
   .bandeau{
-    width: 5000%;
+    width: 840% !important;
   }
   .bandeau.up{
     margin-top:250px;
     margin-right: 500vw !important;
+    animation: slideToLeft 60s infinite linear;
   }
   .bandeau.down{
     margin-bottom:250px;
     margin-left: -500vw;
+    animation: slideToRight 60s infinite linear;
   }
+  @keyframes slideToLeft{
+    from {
+      transform: translateX(15%)
+    }
+    to{
+      transform: translateX(-100%)
+    }
+  }
+  @keyframes slideToRight{
+    from {
+      transform: translateX(-35%)
+    }
+    to{
+      transform: translateX(100%)
+    }
+  }
+}
+
+@media (max-width:520px){
+  .rotation-card-container{
+    margin-top: 150px !important;
+    height: 1550px;
+  }
+  
 }
 
 

@@ -175,7 +175,7 @@ const SectionWrapper = styled.section`
       z-index : -1;
       
       img{
-        width: auto;
+        height: 100vh;
         filter: brightness(150%) blur(3px);
         opacity : 0;
       }

@@ -61,7 +61,7 @@ const presentation1 = () => {
             <Trait width={`${underlineTitle1}px`} bgColor="#9f7f92" height="8px"/>
           </div>
           <div className='container-texte-qui-suis-je' >
-            <div className="side-id-container">
+            <div className="side-id-container" alt="Estelle Bétry, psychomotricienne">
               <img src="/images/IMG_20210422_0017.jpg" width="175px" height="150" className="side-id"/>   
             </div>
             <div className="texte-qui-suis-je">
@@ -140,6 +140,8 @@ const ArticleWrapper = styled.article`
 @media (max-width:1000px){
   .main-container{
     margin: 0px auto;
+    padding-bottom: 10px;
+
   }
 }
 //Valable pour toute la section
@@ -147,6 +149,7 @@ const ArticleWrapper = styled.article`
   //Ici
   .main-container{
     width: 90%;
+    padding-bottom: 0px;
   }
   //Ici
   .title-h2-qui-suis-je{

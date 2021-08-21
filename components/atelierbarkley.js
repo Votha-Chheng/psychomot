@@ -129,7 +129,7 @@ const AtelierBarkley = () => {
                 Certains parents d'enfant diagnosti&shy;qué TDA/H (ou appa&shy;renté) sont très sou&shy;vent confrontés à des problèmes de compor&shy;tement de la part de leur enfant. Dans cette optique, je co-anime avec ma consoeur psy&shy;chologue spécialisée en neuro-psycholo&shy;gie des <b>ateliers de guidance parentale basés sur le</b> <a href='https://www.tdah-france.fr/Programme-d-entrainement-aux-habiletes-parentales-de-Barkley.html' target="blank">programme de BARKLEY</a>.
               </div>
               <div>
-                Au-delà des trucs et astuces proposés aux parents, ces ateliers visent à aider ceux-ci face aux réactions opposantes et défian&shy;tes de leur enfant en leur enseignant, dans une perspective psycho&shy;éducative, des tech&shy;niques de gestion de ces compor&shy;tements dans le quotidien. Ce type de programme a montré <b>son efficacité sur la fréquence et l’in&shy;tensité des comportements perturba&shy;teurs des enfants</b>, en plus de redonner un <b>senti&shy;ment de compétence aux parents</b>.
+                Ces ateliers visent à aider ceux-ci face aux réactions opposantes et défian&shy;tes de leur enfant en enseignant, dans une perspective psycho&shy;éducative, des tech&shy;niques de gestion de ces compor&shy;tements dans le quotidien. Ce type de programme a montré <b>son efficacité sur la fréquence et l’in&shy;tensité des comportements perturba&shy;teurs des enfants</b>, en plus de redonner un <b>senti&shy;ment de compétence aux parents</b>.
               </div>
             </div>
 
@@ -288,7 +288,8 @@ const SectionWrap = styled.section`
       img{
         filter: brightness(125%) blur(1.5px);
         opacity: 0;
-        width: 100%;
+        width: 100vw;
+
       }
     }
 

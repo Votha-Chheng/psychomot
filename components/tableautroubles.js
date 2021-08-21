@@ -68,12 +68,14 @@ const TableauTroubles = () => {
         <div id="container-tableau-enfant" ref={troubleContainer}>
           <div className="tableau-troubles">
             <div className='label-troubles' style={{zIndex:"0"}}>
-              <div className="label left" style={{backgroundColor:`${vignetteEnfant!=="1"? "grey":"whitesmoke"}`, transform:`translateY(${vignetteEnfant!=="1"? "20px":"0px"})`}} onClick={(event)=>clickImgHandler(event, vignetteEnfant)}>
+              <div 
+                className="label left" 
+                style={{backgroundColor:`${vignetteEnfant!=="1"? "grey":"whitesmoke"}`, transform:`translateY(${vignetteEnfant!=="1"? "20px":"0px"})`}} 
+                onClick={(event)=>clickImgHandler(event, vignetteEnfant)}>
                 <div className="label-frame" id="1" onMouseEnter={(event)=>hoverHandler(event, vignetteEnfant)} onMouseLeave={()=>setHovered(null)}/>
                 <h3 
                   className="h3-1"
-                  style={{color:`${(hovered==="1")||(vignetteEnfant==="1")? "#326886" : "transparent"}`, fontSize:`${(hovered==="1")||(vignetteEnfant==="1")? "calc(1.5rem + 1vw)"  : "1.5rem"}`}}
-                >
+                  style={{color:`${(hovered==="1")||(vignetteEnfant==="1")? "#326886" : "transparent"}`, fontSize:`${(hovered==="1")||(vignetteEnfant==="1")? "calc(1.5rem + 1vw)"  : "1.5rem"}`}}>
                   Bébés
                 </h3>
                 <h3 
@@ -83,11 +85,14 @@ const TableauTroubles = () => {
                   Bébés
                 </h3>
               </div>
-              <div className="label right" style={{backgroundColor:`${vignetteEnfant!=="2"? "grey":"whitesmoke"}`, transform:`translateY(${vignetteEnfant!=="2"? "20px":"0px"})`}} onClick={(event)=>clickImgHandler(event, vignetteEnfant)}>
+              <div 
+                className="label right" 
+                style={{backgroundColor:`${vignetteEnfant!=="2"? "grey":"whitesmoke"}`, transform:`translateY(${vignetteEnfant!=="2"? "20px":"0px"})`}} 
+                onClick={(event)=>clickImgHandler(event, vignetteEnfant)}>
                 <div className="label-frame" id="2" onMouseEnter={(event)=>hoverHandler(event, hovered)} onMouseLeave={()=>setHovered(null)}/>
                 <h3 
                   className="h3-1"
-                  style={{color:`${(hovered==="2")||(vignetteEnfant==="2")? "#326886" : "transparent"}`, fontSize:`${(hovered==="2")||(vignetteEnfant==="2")? "calc(1.5rem + 1vw)"  : "1.5rem"}`}}
+                  style={{color:`${(hovered==="2")||(vignetteEnfant==="2")? "#326886" : "transparent"}`, fontSize:`${(hovered==="2")||(vignetteEnfant==="2")? "calc(1.5rem + 1vw)" : "1.5rem"}`}}
                 >
                   Enfants/Adolescents
                 </h3>

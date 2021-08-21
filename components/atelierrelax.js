@@ -108,7 +108,7 @@ const AtelierRelax = () => {
         </div>
 
         <div className="container-guidance">
-          <div className="backgroung-image">
+          <div className="backgroung-image relax-bg">
             <img src="/images/Relaxation-6.jpg" ref={bgImage}/>
           </div>
 
@@ -152,7 +152,7 @@ const AtelierRelax = () => {
                   </div>
                   <div className="relax-reponse" style={{maxHeight:`${showReponse==="2"? reponseHeight2 + "px": "0px"}`, overflow:"hidden"}}>
                     <div ref={reponse2}>
-                      Il permet à l’enfant et à son parent de vivre une <b>expérience positive</b> grâce à la relaxation. Ce médiateur est un outil puissant permettant <b>l’apaisement des tensions corporelles, la diminution del’agitation motrice, une meilleure gestion des émotions, d’acquérir une meilleure connaissance de soi, de ses ressentis et de son corps</b>. Dans un monde où il existe une pression chez les adultes comme chez les enfants de la performance et de la vitesse, où les écrans biaisent les rapports humains, ce temps devient <b>une bulle d’oxygène</b>. Il permet de se ressourcer et expérimenter un moment fort pour être présent à son enfant.
+                      Il permet à l’enfant et à son parent de vivre une <b>expérience positive</b> grâce à la relaxation. Ce médiateur est un outil puissant permettant <b>l’apaisement des tensions corporelles, la diminution de l’agitation motrice, une meilleure gestion des émotions, d’acquérir une meilleure connaissance de soi, de ses ressentis et de son corps</b>. Dans un monde où il existe une pression chez les adultes comme chez les enfants de la performance et de la vitesse, où les écrans biaisent les rapports humains, ce temps devient <b>une bulle d’oxygène</b>. Il permet de se ressourcer et expérimenter un moment fort pour être présent à son enfant.
                     </div>
                     
                   </div>
@@ -227,6 +227,11 @@ const AtelierRelax = () => {
 const SectionWrap = styled.section`
   padding-top: 1px;
 
+  .backgroung-image.relax-bg{
+    width: 100vw;
+    filter: blur(2px);
+  }
+
   .section-title{
     padding: 0px 10px;
     text-transform: uppercase;
@@ -240,6 +245,7 @@ const SectionWrap = styled.section`
     white-space:nowrap;
     margin: 10vh auto 0px;
     transform: translateY(50%);
+
 
     h2{
       font-size :clamp(4em, 5.5vw, 6.5em);

@@ -56,7 +56,7 @@ const Footer = ({color}) => {
           </div>
         </InView> 
       </div>
-      <div id="footer-copyright">Site crée par Votha Chheng &copy; Juillet 2021</div>
+      <div id="footer-copyright">Site crée par <a href="https://github.com/Votha-Chheng" target="_blank">Votha Chheng</a> &copy; Juillet 2021</div>
     </DivWrapper>
       
   );
@@ -78,6 +78,9 @@ const DivWrapper = styled.div`
     color : white;
     background-color : #9f7f92;
     font-family: 'Oswald', sans-serif;
+    a:hover{
+      color: yellow;
+    }
   }
 
   .contact-container{

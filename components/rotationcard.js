@@ -75,10 +75,8 @@ const RotationCard = () => {
   const rotateCardHandler = (event)=>{  
     if((event.target.dataset.card === dataCard)){
       setDataCard(undefined)
+      setHoverCard(undefined)
     } 
-    if(event.target.dataset.card === "5"){
-      setDataCard(undefined)
-    }
     else {
       setDataCard(event.target.dataset.card)
     }
@@ -87,11 +85,12 @@ const RotationCard = () => {
   const rotateFormationCardHandler = (event)=>{  
     if(event.target.dataset.card === dataCardFormation){
       setDataCardFormation(undefined)
+      setHoverFormationCard(undefined)
     } else {
       setDataCardFormation(event.target.dataset.card)
     }
+    
   }
-  console.log(containerParcoursProWidth)
 
   return (
     <DivWrapper>
@@ -121,7 +120,7 @@ const RotationCard = () => {
                 filter:  `${(hoverCard==="1")||(dataCard==="1") ?"blur(0px)" : "blur(0.5px)" }`,
                 transform: `translateY(${(hoverCard ==="1") && (dataCard!=="1") ? "-40" : "0"}px) `
               }}
-              onMouseOver={(event)=>setHoverCard(event.target.dataset.card)} 
+              onMouseOver={(event)=> setHoverCard(event.target.dataset.card)} 
             > 
               <div data-card="1" className="parcours-pro-content" style={{height:"520px"}} onMouseOver={(event)=>setHoverCard(event.target.dataset.card)}>
                 <h4 data-card="1" onMouseOver={(event)=>setHoverCard(event.target.dataset.card)}>Juin 2010</h4>
@@ -183,7 +182,6 @@ const RotationCard = () => {
                 transformOrigin : "10px 95%", 
                 transform : `translateY(${(hoverCard ==="3") && (dataCard!=="3") ? "-40" : "0"}px) rotateZ(${(dataCard==="1")||(dataCard==="2") ? "65deg" : "0deg"})`, 
                 transition:"all 0.5s cubic-bezier(.23,.95,.89,.89)", 
-                
                 transitionDelay : `${dataCard==="1" ? "0.05" : dataCard==="2"? "0" : (dataCard===undefined)? '0.1':"0"}s`,
                 transitionProperty : "transform",
                 backgroundColor:`${(hoverCard==="3")||(dataCard==="3") ? "#f5f5f5":"#c2c2c2"}`,
@@ -225,11 +223,9 @@ const RotationCard = () => {
                 transitionDelay : `${dataCard==="1" ? "0.1" : dataCard==="2"? "0.05" : dataCard === undefined ? "0.05" : "0"}s`,
                 transitionProperty : "transform",
                 backgroundColor:`${(hoverCard==="4")||(dataCard==="4") ? "#f5f5f5":"#c2c2c2"}`,
-                filter: `${(hoverCard==="4")||(dataCard==="4") ?"blur(0px)" : "blur(0.5px)" }`
-                
+                filter: `${(hoverCard==="4")||(dataCard==="4") ?"blur(0px)" : "blur(0.5px)" }`  
               }}
-              onMouseOver={(event)=>setHoverCard(event.target.dataset.card)} 
-            >
+              onMouseOver={(event)=>setHoverCard(event.target.dataset.card)}>
               <div className="parcours-pro-content" style={{height:"370px"}} onMouseOver={(event)=>setHoverCard(event.target.dataset.card)}>
                 <h4 data-card="4" onMouseOver={(event)=>setHoverCard(event.target.dataset.card)}>Septembre 2014 - Décembre 2015</h4>
                 <div data-card="4" onMouseOver={(event)=>setHoverCard(event.target.dataset.card)}>
@@ -266,7 +262,7 @@ const RotationCard = () => {
               backgroundColor:`${((hoverCard===undefined)&&(dataCard===undefined))||(hoverCard==="5")||(dataCard==="5") ? "#f5f5f5":"#c2c2c2"}`,
               filter: `${((hoverCard===undefined)&&(dataCard===undefined))||(hoverCard==="5")||(dataCard==="5") ?"blur(0px)" :"blur(0.5px)"}`
             }}
-              onMouseOver={(event)=>setHoverCard(event.target.dataset.card)}
+              onMouseOver={(event)=> dataCardFormation!==undefined && setHoverCard(event.target.dataset.card)}
             >
               <div data-card="5" className="parcours-pro-content" style={{height:"320px"}} onMouseOver={(event)=>setHoverCard(event.target.dataset.card)} 
               >
@@ -291,14 +287,12 @@ const RotationCard = () => {
             </div>
           </div>
 
-
-
           {/* Eventail FORMATIONS */}
 
           <div className="container-texte-parcours-pro part-2"
             onClick={(event)=>rotateFormationCardHandler(event)}  
             onMouseLeave={()=>setHoverFormationCard(undefined)}
-            style={{top:`${((containerParcoursProWidth<736) && (dataCard!==undefined))? "930px":(containerParcoursProWidth<736)? "700px" : "0px"}`}}
+            style={{top:`${((containerParcoursProWidth<736) && (dataCard!==undefined) && (dataCard!=="5"))? "930px":(containerParcoursProWidth<736)? "700px" : "0px"}`}}
           > 
             <h3 className="experiences">FORMATIONS</h3>
             <h3 className="experiences-z-index">FORMATIONS</h3>
@@ -467,7 +461,7 @@ const DivWrapper = styled.div`
   height: 100%;
 
   .conteneur-trait-3{
-    transform: translateX(-100%);
+    transform: translateX(-120%);
     margin-top: 10px;
   }
 
@@ -498,7 +492,6 @@ const DivWrapper = styled.div`
       z-index: 2;
       opacity: 0;
       
-
       ul{
         list-style-type:square;
       }        

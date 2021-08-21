@@ -229,6 +229,7 @@ const Wrapper = styled.div`
         filter: blur(5px);
         opacity: 0;
         transform: translateY(-10%);
+        width:100vw;
       }
     }
   }
@@ -417,40 +418,6 @@ const Wrapper = styled.div`
       left : 0;
     }
   }
-/* 
-@media (width:360px) and (height:640px){
-  height: 4205px;
-} 
-@media (width:411px) and (height:731px){
-  height: 4135px;
-}   
-@media (width:411px) and (height:823px){
-  height: 4238px;
-}
-@media (width:375px) and (height:667px){
-  height: 4195px;
-}
-@media (width:414px) and (height:736px){
-  height: 4135px;
-}
-@media (width:375px) and (height:812px){
-  height: 4375px;
-}
-@media (width:768px) and (height:1024px){
-  height: 4165px;
-}
-@media (width:1024px) and (height:1366px){
-  height: 4320px;
-}
-@media (width:540px) and (height:720px){
-  height: 3845px;
-}  
-@media (width:280px) and (height:653px){
-  height: 4515px;
-}
-@media (width:360px) and (height:740px){
-  height: 3890px;
-} */
 
 `
 

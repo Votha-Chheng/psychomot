@@ -34,8 +34,9 @@ export default function Home() {
   },[cellScreen])
 
   useEffect(() => {
-    if(section3.current)
-    setTotalHeight(section3.current.clientHeight)
+    if(section3.current){
+      setTotalHeight(section3.current.clientHeight)
+    } 
   }, [totalHeight, size])
 
   return (

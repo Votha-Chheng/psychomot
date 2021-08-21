@@ -114,7 +114,7 @@ const ArticleWrap = styled.article`
     letter-spacing: 1.5px;
   }
   .conteneur-trait-2{
-    transform: translateX(-100%);
+    transform: translateX(-120%);
     margin-top: 10px;
   }
   .container-parcours-texte{
@@ -187,8 +187,10 @@ const ArticleWrap = styled.article`
   }
 
 @media (max-width:1024px){
+  padding-top: 0px;
+
   .specificity-container{
-    padding-top: 250px;
+    padding-top: 20px;
   }
 }
 @media (max-width:1000px){
@@ -215,8 +217,10 @@ const ArticleWrap = styled.article`
 }
 
 @media (max-width:560px){
+  padding-top: 0;
   .specificity-container{
     width: 90%;
+    padding-top: 0;
   }
   .title-parcours{
     font-size: calc(1.2rem + 3vw);

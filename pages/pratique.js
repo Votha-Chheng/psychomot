@@ -53,9 +53,9 @@ const pratique = () => {
                         ))
                       }
                     </div>  
-                    <div className="img-contain">
+                    {/* <div className="img-contain">
                       <img src="/images/20210611_105207.jpg" alt="bilan-psy" width="400"/>
-                    </div>
+                    </div> */}
                   </div>
                   <div style={{textAlign:'center', color:"#28536b", fontFamily:"'Oswald', sans-serif", fontSize:"1.1em", fontWeight:"bold"}}>
                     <small>
@@ -121,7 +121,7 @@ const Wrapper = styled.div`
     height:100%; 
     display:flex; 
     flex-wrap: wrap;
-    justify-content:space-evenly;
+    justify-content:center;
     transition: background-color 0.5s ease-out;
 
     .img-contain{
@@ -134,6 +134,7 @@ const Wrapper = styled.div`
       border: 5px solid #28536b;
       z-index: -1;
       margin-top: 20px;
+      margin : 0 20px;
 
       img{
         filter: brightness(100%) contrast(150%);

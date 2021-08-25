@@ -42,20 +42,29 @@ const pratique = () => {
                     <div className="img-contain">
                       {
                         numberArray2.map((number, index)=>(
-                          <img key={index} className="image-frise-2" src={`/images/anim/20210611_1123${number}.jpg`} width="400" height="220" style={{position:"absolute", top:"0", left:"0", zIndex:`${7-index}`}}/>
+                          <img 
+                            key={index} 
+                            className="image-frise-2" 
+                            src={`/images/anim/20210611_1123${number}.jpg`} 
+                            width="400" 
+                            height="220" 
+                            style={{position:"absolute", top:"0", left:"0", zIndex:`${7-index}`}}/>
                         ))
                       }
                     </div>
                     <div className="img-contain" style={{position:"relative", width:'400px', height:'220px', top:"0", left:"0"}}>
                       {
                         numberArray.map((number, index)=>(
-                          <img key={index} className="image-frise" src={`/images/anim/20210611_111927_0${number}.jpg`} width="400" height="220" style={{position:"absolute", top:"0", left:"0", zIndex:`${30-index}`}}/>
+                          <img 
+                            key={index} 
+                            className="image-frise" 
+                            src={`/images/anim/20210611_111927_0${number}.jpg`} 
+                            width="400"
+                            height="220" 
+                            style={{position:"absolute", top:"0", left:"0", zIndex:`${30-index}`}}/>
                         ))
                       }
                     </div>  
-                    {/* <div className="img-contain">
-                      <img src="/images/20210611_105207.jpg" alt="bilan-psy" width="400"/>
-                    </div> */}
                   </div>
                   <div style={{textAlign:'center', color:"#28536b", fontFamily:"'Oswald', sans-serif", fontSize:"1.1em", fontWeight:"bold"}}>
                     <small>
@@ -64,12 +73,12 @@ const pratique = () => {
                   </div>
                 </div>
                 
-
                 <InView style={{position:"static", height:"auto"}} threshold='0.1' as="div" onChange={(inView)=>setPartTwoInView(inView)}>
                   <PratiqueSection2 partTwoInview={partTwoInview} backgroundColor={`${partTwoInview || partThreeInview ? "#9f7f92" : "transparent"}`}  />
                 </InView>
                 
                 <div className="separateur" style={{backgroundColor:"#9f7f92"}}/>
+
                 <InView className="footer-container" as="div" threshold="0.15" onChange={(inView)=>setPartThreeInView(inView)} style={{height:"100%"}}>
                   <Footer color="#9f7f92"/>
                 </InView>
@@ -77,7 +86,6 @@ const pratique = () => {
               </div>
             </Wrapper>   
         </SmoothScrollProvider>
-
     </div>
   )
 }

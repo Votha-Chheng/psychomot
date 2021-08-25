@@ -2,7 +2,6 @@ import {gsap} from "gsap"
 import { useEffect, useRef, useState } from "react";
 import {InView} from "react-intersection-observer";
 import styled from "styled-components";
-import useWindowSize from "../hooks/useWindowSize";
 
 const TableauTroublesAdultes = () => {
 
@@ -10,8 +9,6 @@ const TableauTroublesAdultes = () => {
   const [vignetteEnfant, setVignetteEnfant] = useState("1")
 
   const [hovered, setHovered] = useState("")
-
-  const size = useWindowSize()
 
   const troubleContainer = useRef(null)
 
@@ -70,33 +67,43 @@ const TableauTroublesAdultes = () => {
         <div id="container-tableau-adulte" ref={troubleContainer}>
           <div className="tableau-troubles">
             <div className='label-troubles' style={{zIndex:"0"}}>
-              <div className="label left" style={{backgroundColor:`${vignetteEnfant!=="1"? "grey":"whitesmoke"}`, transform:`translateY(${vignetteEnfant!=="1"? "20px":"0px"})`}} onClick={(event)=>clickImgHandler(event, vignetteEnfant)}>
+              <div 
+                className="label left" 
+                style={{backgroundColor:`${vignetteEnfant!=="1"? "grey":"whitesmoke"}`, transform:`translateY(${vignetteEnfant!=="1"? "20px":"0px"})`}} 
+                onClick={(event)=>clickImgHandler(event, vignetteEnfant)}>
                 <div className="label-frame" id="1" onMouseEnter={(event)=>hoverHandler(event, vignetteEnfant)} onMouseLeave={()=>setHovered(null)}/>
                 <h3 
                   className="h3-1"
-                  style={{color:`${(hovered==="1")||(vignetteEnfant==="1")? "#326886" : "transparent"}`, fontSize:`${(hovered==="1")||(vignetteEnfant==="1")? "2.5rem" : "1.5rem"}`}}
-                >
+                  style={{
+                    color:`${(hovered==="1")||(vignetteEnfant==="1")? "#326886" : "transparent"}`, 
+                    fontSize:`${(hovered==="1")||(vignetteEnfant==="1")? "2.5rem" : "1.5rem"}`}}>
                   Adultes
                 </h3>
                 <h3 
                   className="h3-2"
-                  style={{transform:`translateY(${(hovered==="1")||(vignetteEnfant==="1")? "-150%" : "0%"})`, fontSize:`${(hovered==="1")||(vignetteEnfant==="1")? "2.5rem" : "1.5rem"}`}}
-                >
+                  style={{
+                    transform:`translateY(${(hovered==="1")||(vignetteEnfant==="1")? "-150%" : "0%"})`, 
+                    fontSize:`${(hovered==="1")||(vignetteEnfant==="1")? "2.5rem" : "1.5rem"}`}}>
                   Adultes
                 </h3>
               </div>
-              <div className="label right" style={{backgroundColor:`${vignetteEnfant!=="2"? "grey":"whitesmoke"}`, transform:`translateY(${vignetteEnfant!=="2"? "20px":"0px"})`}} onClick={(event)=>clickImgHandler(event, vignetteEnfant)}>
+              <div 
+                className="label right" 
+                style={{backgroundColor:`${vignetteEnfant!=="2"? "grey":"whitesmoke"}`, transform:`translateY(${vignetteEnfant!=="2"? "20px":"0px"})`}} 
+                onClick={(event)=>clickImgHandler(event, vignetteEnfant)}>
                 <div className="label-frame" id="2" onMouseEnter={(event)=>hoverHandler(event, hovered)} onMouseLeave={()=>setHovered(null)}/>
                 <h3 
                   className="h3-1"
-                  style={{color:`${(hovered==="2")||(vignetteEnfant==="2")? "#326886" : "transparent"}`, fontSize:`${(hovered==="2")||(vignetteEnfant==="2")? "2.5rem" : "1.5rem"}`}}
-                >
+                  style={{
+                    color:`${(hovered==="2")||(vignetteEnfant==="2")? "#326886" : "transparent"}`, 
+                    fontSize:`${(hovered==="2")||(vignetteEnfant==="2")? "2.5rem" : "1.5rem"}`}}>
                   Personnes âgées
                 </h3>
                 <h3 
                   className="h3-2"
-                  style={{transform:`translateY(${(hovered==="2")||(vignetteEnfant==="2")? "-150%" : "0%"})`, fontSize:`${(hovered==="2")||(vignetteEnfant==="2")? "2.5rem" : "1.5rem"}`}}
-                >
+                  style={{
+                    transform:`translateY(${(hovered==="2")||(vignetteEnfant==="2")? "-150%" : "0%"})`, 
+                    fontSize:`${(hovered==="2")||(vignetteEnfant==="2")? "2.5rem" : "1.5rem"}`}}>
                   Personnes âgées
                 </h3>
               </div>
@@ -107,7 +114,18 @@ const TableauTroublesAdultes = () => {
                   <img src="/images/public-adulte.jpg"/>
                 </div>
                 <div className="icon" style={{width:"100vw", textAlign:"right"}}>
-                  <div style={{width: "100px", position: "static", paddingTop: "10px", paddingLeft: "10px", fontFamily: '"Oxygen", sans-serif', fontStyle: "italic", color: "#adadad",marginRight: "10px"}}>Personnes âgées</div>
+                  <div 
+                    style={{
+                      width: "100px", 
+                      position: "static", 
+                      paddingTop: "10px", 
+                      paddingLeft: "10px", 
+                      fontFamily: '"Oxygen", sans-serif', 
+                      fontStyle: "italic", 
+                      color: "#adadad",
+                      marginRight: "10px"}}>
+                      Personnes âgées
+                    </div>
                   <i className="fas fa-caret-square-right fa-4x icon right" onClick={()=>setVignetteEnfant('2')}></i>
                 </div>
                 <div className="texte">
@@ -130,7 +148,17 @@ const TableauTroublesAdultes = () => {
                 </div>
                 <div className="icon left">
                   <i className="fas fa-caret-square-left fa-4x icon left" onClick={()=>setVignetteEnfant('1')}/>
-                  <div style={{width: "100px", position: "static", paddingTop: "20px", paddingLeft: "0px", fontFamily: '"Oxygen", sans-serif', fontStyle: "italic", color: "#adadad"}}>Adultes</div>
+                  <div 
+                    style={{
+                      width: "100px", 
+                      position: "static", 
+                      paddingTop: "20px", 
+                      paddingLeft: "0px", 
+                      fontFamily: '"Oxygen", sans-serif', 
+                      fontStyle: "italic", 
+                      color: "#adadad"}}>
+                      Adultes
+                  </div>
                 </div>
                 <div className="texte">
                   <h3 className="title-responsive">Chez les personnes âgées</h3>
@@ -257,7 +285,6 @@ const DivWrapper = styled.div`
         width: 100%;
         overflow: hidden;
         height: 100%;
-        //background-color: blue;
         display: flex;
         z-index: 1;
         border: 1px solid black;

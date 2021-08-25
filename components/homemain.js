@@ -125,10 +125,9 @@ const HomeMain = () => {
         <div className='wall-menu' ref={wallMenu}>
           <div className="vignette" ref={photoId}>
             <img src='/images/20210611_104823mod.jpg' alt='portrait'/>
-
-          </div>
-          
+          </div>  
         </div>
+
         <div className="banner-text">
           <div className='title'>
             <h1 ref={title}>
@@ -145,9 +144,9 @@ const HomeMain = () => {
               <span ref={nomH1}>Psychomotricienne D.E.</span>
             </h1>
           </div>
-          
         </div>
       </div>
+
       <div className='question' >
         <h2 data-scroll data-scroll-speed="0.5" ref={question1}>Quand faire appel à une psychomotricienne...</h2>
       </div>
@@ -157,7 +156,10 @@ const HomeMain = () => {
           <div className={`card-container ${flipEnfant ? "flip back" : "front"}`}>
             <div className="recto">
 
-              <img src="/images/20210422_144500.jpg" alt='bg' style={{top:(positionFlipEnfant.top)*(-1), left:`${(positionFlipEnfant.left-25)*(-1)}px`, backfaceVisibility : "hidden"}}/>
+              <img 
+                src="/images/20210422_144500.jpg" 
+                alt='cabinet de psychomotricité Alpilles, Bouches-du-Rhône' 
+                style={{top:(positionFlipEnfant.top)*(-1), left:`${(positionFlipEnfant.left-25)*(-1)}px`, backfaceVisibility : "hidden"}}/>
               <h2 ref={question2}>...chez l'enfant ?</h2>
               <i ref={icon2} className="fas fa-arrow-circle-right fa-3x" style={{cursor:'pointer'}} onClick={()=>setFlipEnfant(prev=> !prev)}></i>
             </div>
@@ -174,16 +176,14 @@ const HomeMain = () => {
               <div className='button'>
                 <a href="/psychomotricite/#troubles-enfant">En savoir plus</a>
               </div>
-              <i className={`fas fa-arrow-circle-left fa-2x ${flipEnfant ? "front" : "back"}`} style={{cursor:'pointer', zIndex:'10'}} onClick={()=>setFlipEnfant(prev=> !prev)}></i>
+              <i className={`fas fa-arrow-circle-left fa-2x ${flipEnfant ? "front" : "back"}`} style={{cursor:'pointer', zIndex:'10'}} onClick={()=>setFlipEnfant(prev=> !prev)}/>
             </div>
           </div> 
         </div>
         <div className='card-flip adulte' ref={cardFlipAdulte}>
           <div className={`card-container ${flipAdulte ? "flip back" : "front"}`}>
             <div className="recto">
-
               <img src="/images/20210422_144500.jpg" alt='bg' style={{top:(positionFlipAdulte.top)*-1, left:`${(positionFlipAdulte.left-25)*-1}px`, backfaceVisibility : "hidden"}}/>
-              
               <h2 ref={question3}>...chez l'adulte ?</h2>
               <i ref={icon3} className="fas fa-arrow-circle-right fa-3x" style={{cursor:'pointer'}} onClick={()=>setFlipAdulte(prev=> !prev)}></i>
             </div>
@@ -201,18 +201,16 @@ const HomeMain = () => {
               <div className='button'>
                 <a href="/psychomotricite/#troubles-adulte" >En savoir plus</a>
               </div> 
-              <i className={`fas fa-arrow-circle-left fa-2x ${flipAdulte ? "front" : "back"}`} style={{cursor:'pointer', zIndex:'10'}} onClick={()=>setFlipAdulte(prev=> !prev)}></i>
+              <i className={`fas fa-arrow-circle-left fa-2x ${flipAdulte ? "front" : "back"}`} style={{cursor:'pointer', zIndex:'10'}} onClick={()=>setFlipAdulte(prev=> !prev)}/>
             </div>
           </div> 
         </div>
       </section>
-      
     </WrapperSection>
   );
 }
 
 const WrapperSection = styled.section`
-
   height: 200vh;
   width: 100%;
   position: relative;

@@ -18,36 +18,43 @@ const psychomotricitePage = () => {
       <Head>
         <title>Estelle Bétry psychomotricienne Mouriès Alpilles - Psychomotricité - Public - Troubles psychomoteurs - TDAH</title>   
       </Head>
-
-          
+       
       <SmoothScrollProvider options={{smooth : true, multiplier : 1, firefoxMultiplier: 1000}}>
   
           <Wrapper data-scroll-container>
-          {
-            <div id='super-container'>
-              <div className="menu-container" style={{backgroundColor:`${(partTwoInview ||(partOneInview && partTwoInview)) ? "#28536b" : partOneInview ?"#9f7f92" : partThreeInview ? "#9f7f92" : "#28536b" }`}} data-scroll data-scroll-sticky data-scroll-target="#super-container">
-                <nav>
-                  <Menu color="white" backgroundColor={`${(partTwoInview ||(partOneInview && partTwoInview)) ? "#28536b" : partOneInview ?"#9f7f92" : partThreeInview ? "#9f7f92" : "#28536b" }`}/>
-                </nav>
+            {
+              <div id='super-container'>
+                <div 
+                  className="menu-container" 
+                  style={{backgroundColor:`${(partTwoInview ||(partOneInview && partTwoInview)) ? "#28536b" : partOneInview ?"#9f7f92" : partThreeInview ? "#9f7f92" : "#28536b" }`}} data-scroll 
+                  data-scroll-sticky 
+                  data-scroll-target="#super-container">
+                  <nav>
+                    <Menu 
+                      color="white" 
+                      backgroundColor={`${(partTwoInview ||(partOneInview && partTwoInview)) ? "#28536b" : partOneInview ?"#9f7f92" : partThreeInview ? "#9f7f92" : "#28536b" }`}/>
+                  </nav>
+                </div>
+                <InView as="div" onChange={(inView, entry)=>setPartOneInView(inView)}>
+                  <PsychSection1 backgroundColor={`${partTwoInview ? "#28536b":"transparent"}`}/>
+                </InView>
+                
+                <InView as="div" threshold="0.15" onChange={(inView)=>setPartTwoInView(inView)}>
+                  <PsychSection2 
+                    backgroundColor={`${(partTwoInview ||(partOneInview && partTwoInview)) ? "#28536b" : partOneInview ?"transparent" : partThreeInview ? "#9f7f92" : "#28536b" }`} footerInView = {partThreeInview}/>
+                </InView>
+                
+                <div 
+                  className="separateur" 
+                  style={{backgroundColor:`${(partTwoInview ||(partOneInview && partTwoInview)) ? "#28536b" : partOneInview ?"#9f7f92" : partThreeInview ? "#9f7f92" : "#28536b" }`}}/>
+                <InView as="div" className="footer-container" threshold="0.15" onChange={(inView)=>setPartThreeInView(inView)}>
+                  <Footer color="#9f7f92"/>
+                </InView>
+    
               </div>
-              <InView as="div" onChange={(inView, entry)=>setPartOneInView(inView)}>
-                <PsychSection1 backgroundColor={`${partTwoInview ? "#28536b":"transparent"}`}/>
-              </InView>
-              
-              <InView as="div" threshold="0.15" onChange={(inView)=>setPartTwoInView(inView)}>
-                <PsychSection2 backgroundColor={`${(partTwoInview ||(partOneInview && partTwoInview)) ? "#28536b" : partOneInview ?"transparent" : partThreeInview ? "#9f7f92" : "#28536b" }`} footerInView = {partThreeInview}/>
-              </InView>
-              
-              <div className="separateur" style={{backgroundColor:`${(partTwoInview ||(partOneInview && partTwoInview)) ? "#28536b" : partOneInview ?"#9f7f92" : partThreeInview ? "#9f7f92" : "#28536b" }`}}/>
-              <InView as="div" className="footer-container" threshold="0.15" onChange={(inView)=>setPartThreeInView(inView)}>
-                <Footer color="#9f7f92"/>
-              </InView>
-              
-            </div>
             }
           </Wrapper>  
        
-         
       </SmoothScrollProvider> 
       
     </div>
@@ -70,7 +77,6 @@ const Wrapper = styled.div`
     width: 100%;  
     height: 50px;
     z-index: 10;
-    //margin-bottom: 50px;
 
     nav{
     z-index: 10;

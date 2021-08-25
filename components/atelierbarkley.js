@@ -204,10 +204,18 @@ const AtelierBarkley = () => {
                   <div ref={reponse5} style={{display:"flex", flexDirection:"column", alignItems:"start", marginLeft : "20px"}}>
                     <div className="names-flexbox">
                       <div style={{marginRight:"30px"}}>
-                        <em><b>Estelle Bétry</b></em><br/>(psychomotricienne)<br/><i className="fas fa-phone" style={{marginRight:"10px"}} /><a href="tel:0644851800" style={{fontStyle:"normal", color : "#28536b", fontWeight:'100'}}>06 44 85 18 00</a>
+                        <em><b>Estelle Bétry</b></em>
+                        <br/>(psychomotricienne)
+                        <br/>
+                        <i className="fas fa-phone" style={{marginRight:"10px", fontStyle:"normal", color : "#28536b", fontWeight:'100'}}/>
+                        <a href="tel:0644851800">06 44 85 18 00</a>
                       </div>
                       <div className="name-sandie">
-                        <em><b>Sandie Chambardon</b></em><br/>(psychologue spécialisée en neuropsychologie)<br/><i className="fas fa-phone" style={{marginRight:"10px"}} /><a href="tel:0601152203" style={{fontStyle:"normal", color : "#28536b", fontWeight:'100'}}>06 01 15 22 03</a>
+                        <em><b>Sandie Chambardon</b></em>
+                        <br/>(psychologue spécialisée en neuropsychologie)
+                        <br/>
+                        <i className="fas fa-phone" style={{marginRight:"10px"}} />
+                        <a href="tel:0601152203" style={{fontStyle:"normal", color : "#28536b", fontWeight:'100'}}>06 01 15 22 03</a>
                       </div>
                     </div>
                     <div style={{textAlign:"left", display:"flex"}}>

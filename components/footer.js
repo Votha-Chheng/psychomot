@@ -26,7 +26,13 @@ const Footer = ({color}) => {
           13890 Mouriès &nbsp; <i className={`fas fa-caret-${isShown?'left':'right'}`} style={{transform:'translateY(2px)'}}/></span>
         </div>
         <div className={`iframe-container ${isShown ? 'show-address' : ''}`} onClick={()=>setIsShown(prev=>!prev)}  onMouseEnter={()=>setIsShown(true)} onMouseLeave={()=>setIsShown(false)}>
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4851.865112696682!2d4.856557238622474!3d43.69108858066278!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xab1fec3575c9db61!2sEspace%20param%C3%A9dical%20du%20Devenson%20Alpilles%20Mouries%20Kinesitherapeute%2013!5e0!3m2!1sfr!2sfr!4v1619618065515!5m2!1sfr!2sfr" width="350" height="400" style={{border : "none"}} allowFullScreen="" loading="lazy"/>
+          <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4851.865112696682!2d4.856557238622474!3d43.69108858066278!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xab1fec3575c9db61!2sEspace%20param%C3%A9dical%20du%20Devenson%20Alpilles%20Mouries%20Kinesitherapeute%2013!5e0!3m2!1sfr!2sfr!4v1619618065515!5m2!1sfr!2sfr" 
+          width="350" 
+          height="400" 
+          style={{border : "none"}} 
+          allowFullScreen="" 
+          loading="lazy"/>
         </div>     
       </div>
       <div className='contact-container'>
@@ -156,9 +162,6 @@ const DivWrapper = styled.div`
         color: #745869;
       }
     }
-    /* .message span{
-      cursor: pointer;
-    } */
   }
 
   

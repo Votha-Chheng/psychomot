@@ -163,7 +163,6 @@ const SectionWrapper = styled.section`
 
   .colonnes{
     margin : 0vh 20px 20vh;
-    //font-size : 1.6em;
     display : flex;
     height : 100%;
     position : relative;

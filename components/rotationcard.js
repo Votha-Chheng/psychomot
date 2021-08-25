@@ -120,8 +120,7 @@ const RotationCard = () => {
                 filter:  `${(hoverCard==="1")||(dataCard==="1") ?"blur(0px)" : "blur(0.5px)" }`,
                 transform: `translateY(${(hoverCard ==="1") && (dataCard!=="1") ? "-40" : "0"}px) `
               }}
-              onMouseOver={(event)=> setHoverCard(event.target.dataset.card)} 
-            > 
+              onMouseOver={(event)=> setHoverCard(event.target.dataset.card)}> 
               <div data-card="1" className="parcours-pro-content" style={{height:"520px"}} onMouseOver={(event)=>setHoverCard(event.target.dataset.card)}>
                 <h4 data-card="1" onMouseOver={(event)=>setHoverCard(event.target.dataset.card)}>Juin 2010</h4>
                 <div data-card="1" className="desc" onMouseOver={(event)=>setHoverCard(event.target.dataset.card)}>
@@ -149,8 +148,7 @@ const RotationCard = () => {
                 backgroundColor:`${(hoverCard==="2")||(dataCard==="2") ? "#f5f5f5":"#c2c2c2"}`,
                 filter:  `${(hoverCard==="2")||(dataCard==="2") ?"blur(0px)" : "blur(0.5px)" }`
               }}
-              onMouseOver={(event)=>setHoverCard(event.target.dataset.card)}  
-            >
+              onMouseOver={(event)=>setHoverCard(event.target.dataset.card)}>
                 <div data-card="2" className="parcours-pro-content" style={{height:"470px"}} onMouseOver={(event)=>setHoverCard(event.target.dataset.card)}>
                   <h4 data-card="2" onMouseOver={(event)=>setHoverCard(event.target.dataset.card)}>Janvier 2012 - Juillet 2012 </h4>
                   <div data-card="2"  onMouseOver={(event)=>setHoverCard(event.target.dataset.card)}>
@@ -187,15 +185,13 @@ const RotationCard = () => {
                 backgroundColor:`${(hoverCard==="3")||(dataCard==="3") ? "#f5f5f5":"#c2c2c2"}`,
                 filter:  `${(hoverCard==="3")||(dataCard==="3") ?"blur(0px)" : "blur(0.5px)" }`
               }}
-              onMouseOver={(event)=>setHoverCard(event.target.dataset.card)} 
-            >
+              onMouseOver={(event)=>setHoverCard(event.target.dataset.card)}>
               <div className="parcours-pro-content" style={{height:"420px"}} onMouseOver={(event)=>setHoverCard(event.target.dataset.card)}>
                 <h4 data-card="3" onMouseOver={(event)=>setHoverCard(event.target.dataset.card)} >Août 2012 - Juillet 2013</h4>
                 <div data-card="3" onMouseOver={(event)=>setHoverCard(event.target.dataset.card)}>
                   <div data-card="3" className="desc" onMouseOver={(event)=>setHoverCard(event.target.dataset.card)}>
                     Centre Hospitalier d'ARLES(13), service « Equipe Spécialisée Alzheimer ».
                   </div>
-                  
                   <ul style={{paddingLeft:"15px"}}>
                     <li>
                       Participation à la création du service ESA.
@@ -262,10 +258,8 @@ const RotationCard = () => {
               backgroundColor:`${((hoverCard===undefined)&&(dataCard===undefined))||(hoverCard==="5")||(dataCard==="5") ? "#f5f5f5":"#c2c2c2"}`,
               filter: `${((hoverCard===undefined)&&(dataCard===undefined))||(hoverCard==="5")||(dataCard==="5") ?"blur(0px)" :"blur(0.5px)"}`
             }}
-              onMouseOver={(event)=> dataCardFormation!==undefined && setHoverCard(event.target.dataset.card)}
-            >
-              <div data-card="5" className="parcours-pro-content" style={{height:"320px"}} onMouseOver={(event)=>setHoverCard(event.target.dataset.card)} 
-              >
+              onMouseOver={(event)=> dataCardFormation!==undefined && setHoverCard(event.target.dataset.card)}>
+              <div data-card="5" className="parcours-pro-content" style={{height:"320px"}} onMouseOver={(event)=>setHoverCard(event.target.dataset.card)} >
                 <h4 data-card="5" onMouseOver={(event)=>setHoverCard(event.target.dataset.card)}>Depuis Mars 2014</h4>
                 <div data-card="5" onMouseOver={(event)=>setHoverCard(event.target.dataset.card)}>
                   <div data-card="5" className="desc" onMouseOver={(event)=>setHoverCard(event.target.dataset.card)}>
@@ -308,8 +302,7 @@ const RotationCard = () => {
                 filter:  `${(hoverFormationCard==="1")||(dataCardFormation==="1") ?"blur(0px)" : "blur(0.5px)" }`,
                 transform: `translateY(${(hoverFormationCard ==="1") && (dataCardFormation!=="1") ? "-40" : "0"}px) `
               }}
-              onMouseOver={(event)=>setHoverFormationCard(event.target.dataset.card)} 
-            > 
+              onMouseOver={(event)=>setHoverFormationCard(event.target.dataset.card)} > 
               <div className="parcours-pro-content" style={{height:"520px"}} onMouseOver={(event)=>setHoverFormationCard(event.target.dataset.card)}>
                 <h4 data-card="1" onMouseOver={(event)=>setHoverFormationCard(event.target.dataset.card)}>Sur le TDA/H</h4>
                 <div data-card="1" className="desc" onMouseOver={(event)=>setHoverFormationCard(event.target.dataset.card)}>
@@ -339,8 +332,7 @@ const RotationCard = () => {
                 backgroundColor:`${(hoverFormationCard==="2")||(dataCardFormation==="2") ? "#f5f5f5":"#c2c2c2"}`,
                 filter:  `${(hoverFormationCard==="2")||(dataCardFormation==="2") ?"blur(0px)" : "blur(0.5px)" }`
               }}
-              onMouseOver={(event)=>setHoverFormationCard(event.target.dataset.card)}  
-            >
+              onMouseOver={(event)=>setHoverFormationCard(event.target.dataset.card)}  >
                 <div data-card="2" className="parcours-pro-content" style={{height:"470px"}} onMouseOver={(event)=>setHoverFormationCard(event.target.dataset.card)}>
                   <h4 data-card="2" onMouseOver={(event)=>setHoverFormationCard(event.target.dataset.card)}>Sur les TROUBLES DYS</h4>
                   <div data-card="2"  onMouseOver={(event)=>setHoverFormationCard(event.target.dataset.card)}>
@@ -372,8 +364,7 @@ const RotationCard = () => {
                 backgroundColor:`${(hoverFormationCard==="3")||(dataCardFormation==="3") ? "#f5f5f5":"#c2c2c2"}`,
                 filter:  `${(hoverFormationCard==="3")||(dataCardFormation==="3") ?"blur(0px)" : "blur(0.5px)" }`
               }}
-              onMouseOver={(event)=>setHoverFormationCard(event.target.dataset.card)} 
-            >
+              onMouseOver={(event)=>setHoverFormationCard(event.target.dataset.card)} >
               <div className="parcours-pro-content" style={{height:"420px"}} onMouseOver={(event)=>setHoverFormationCard(event.target.dataset.card)}>
                 <h4 data-card="3" onMouseOver={(event)=>setHoverFormationCard(event.target.dataset.card)} >Sur la M&Eacute;DITATION</h4>
                 <div data-card="3" onMouseOver={(event)=>setHoverFormationCard(event.target.dataset.card)}>
@@ -405,8 +396,7 @@ const RotationCard = () => {
                 filter: `${(hoverFormationCard==="4")||(dataCardFormation==="4") ?"blur(0px)" : "blur(0.5px)" }`
                 
               }}
-              onMouseOver={(event)=>setHoverFormationCard(event.target.dataset.card)} 
-            >
+              onMouseOver={(event)=>setHoverFormationCard(event.target.dataset.card)} >
               <div className="parcours-pro-content" style={{height:"370px"}} onMouseOver={(event)=>setHoverFormationCard(event.target.dataset.card)}>
                 <h4 data-card="4" onMouseOver={(event)=>setHoverFormationCard(event.target.dataset.card)}>Sur les TROUBLES ANXIEUX</h4>
                 <div data-card="4" onMouseOver={(event)=>setHoverFormationCard(event.target.dataset.card)}>
@@ -434,10 +424,8 @@ const RotationCard = () => {
               backgroundColor:`${((hoverFormationCard===undefined)&&(dataCardFormation===undefined))||(hoverFormationCard==="5")||(dataCardFormation==="5") ? "#f5f5f5":"#c2c2c2"}`,
               filter: `${((hoverFormationCard===undefined)&&(dataCardFormation===undefined))||(hoverFormationCard==="5")||(dataCardFormation==="5") ?"blur(0px)" :"blur(0.5px)"}`
             }}
-              onMouseOver={(event)=>setHoverFormationCard(event.target.dataset.card)}
-            >
-              <div data-card="5" className="parcours-pro-content" style={{height:"320px"}} onMouseOver={(event)=>setHoverFormationCard(event.target.dataset.card)} 
-              >
+              onMouseOver={(event)=>setHoverFormationCard(event.target.dataset.card)}>
+              <div data-card="5" className="parcours-pro-content" style={{height:"320px"}} onMouseOver={(event)=>setHoverFormationCard(event.target.dataset.card)} >
                 <h4 data-card="5" onMouseOver={(event)=>setHoverFormationCard(event.target.dataset.card)}>Sur les personnes HPI</h4>
                 <div data-card="5" onMouseOver={(event)=>setHoverFormationCard(event.target.dataset.card)}>
                   <div data-card="5" className="desc" onMouseOver={(event)=>setHoverFormationCard(event.target.dataset.card)}>
@@ -632,7 +620,6 @@ const DivWrapper = styled.div`
 
 @media (max-width:560px){  
   .title-parcours-pro{
-    //font-size: calc(1.5rem + 3.4vw) !important;
     -webkit-text-stroke: unset !important;
     color: whitesmoke !important;
   }
@@ -643,7 +630,6 @@ const DivWrapper = styled.div`
     left: -12vw !important;
   }
 }
-
 
 `
 

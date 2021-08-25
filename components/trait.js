@@ -16,8 +16,6 @@ Trait.defaultProps = {
 const TraitStyle = styled.div`
   border-radius : 3px;
   z-index :-5;
-  
-  //margin : 0px auto;
 `
 
 export default Trait;

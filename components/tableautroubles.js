@@ -75,13 +75,17 @@ const TableauTroubles = () => {
                 <div className="label-frame" id="1" onMouseEnter={(event)=>hoverHandler(event, vignetteEnfant)} onMouseLeave={()=>setHovered(null)}/>
                 <h3 
                   className="h3-1"
-                  style={{color:`${(hovered==="1")||(vignetteEnfant==="1")? "#326886" : "transparent"}`, fontSize:`${(hovered==="1")||(vignetteEnfant==="1")? "calc(1.5rem + 1vw)"  : "1.5rem"}`}}>
+                  style={{
+                    color:`${(hovered==="1")||(vignetteEnfant==="1")? "#326886" : "transparent"}`, 
+                    fontSize:`${(hovered==="1")||(vignetteEnfant==="1")? "calc(1.5rem + 1vw)"  : "1.5rem"}`
+                  }}>
                   Bébés
                 </h3>
                 <h3 
                   className="h3-2"
-                  style={{transform:`translateY(${(hovered==="1")||(vignetteEnfant==="1")? "-150%" : "0%"})`, fontSize:`${(hovered==="1")||(vignetteEnfant==="1")? "calc(1.5rem + 1vw)" : "1.5rem"}`}}
-                >
+                  style={{
+                    transform:`translateY(${(hovered==="1")||(vignetteEnfant==="1")? "-150%" : "0%"})`, 
+                    fontSize:`${(hovered==="1")||(vignetteEnfant==="1")? "calc(1.5rem + 1vw)" : "1.5rem"}`}}>
                   Bébés
                 </h3>
               </div>
@@ -92,14 +96,16 @@ const TableauTroubles = () => {
                 <div className="label-frame" id="2" onMouseEnter={(event)=>hoverHandler(event, hovered)} onMouseLeave={()=>setHovered(null)}/>
                 <h3 
                   className="h3-1"
-                  style={{color:`${(hovered==="2")||(vignetteEnfant==="2")? "#326886" : "transparent"}`, fontSize:`${(hovered==="2")||(vignetteEnfant==="2")? "calc(1.5rem + 1vw)" : "1.5rem"}`}}
-                >
+                  style={{
+                    color:`${(hovered==="2")||(vignetteEnfant==="2")? "#326886" : "transparent"}`, 
+                    fontSize:`${(hovered==="2")||(vignetteEnfant==="2")? "calc(1.5rem + 1vw)" : "1.5rem"}`}}>
                   Enfants/Adolescents
                 </h3>
                 <h3 
                   className="h3-2"
-                  style={{transform:`translateY(${(hovered==="2")||(vignetteEnfant==="2")? "-150%" : "0%"})`, fontSize:`${(hovered==="2")||(vignetteEnfant==="2")? "calc(1.5rem + 1vw)"  : "1.5rem"}`}}
-                >
+                  style={{
+                    transform:`translateY(${(hovered==="2")||(vignetteEnfant==="2")? "-150%" : "0%"})`, 
+                    fontSize:`${(hovered==="2")||(vignetteEnfant==="2")? "calc(1.5rem + 1vw)"  : "1.5rem"}`}}>
                   Enfants/Adolescents
                 </h3>
               </div>
@@ -334,9 +340,7 @@ const DivWrapper = styled.div`
       &:hover{
         opacity: 0.8;
       }
-    }
-    
-    
+    } 
   }
 
   @media (max-width:1250px){
@@ -392,6 +396,5 @@ const DivWrapper = styled.div`
       display: none;
     }
   }
-
 `
 export default TableauTroubles;

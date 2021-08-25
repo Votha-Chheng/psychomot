@@ -26,7 +26,9 @@ const Menu = ({color, fontWeight, backgroundColor}) => {
           </div>
 
           <ul>
-            <li style={{borderBottom:`${history.pathname === "/psychomotricite" ? "2px solid white" : "none"}`}}><a href='/psychomotricite' as='/psychomotricite'>Psychomotricité</a></li>
+            <li style={{borderBottom:`${history.pathname === "/psychomotricite" ? "2px solid white" : "none"}`}}>
+              <a href='/psychomotricite' as='/psychomotricite'>Psychomotricité</a>
+            </li>
             <li style={{borderBottom:`${history.pathname === "/pratique" ? "2px solid white" : "none"}`}}><a href='/pratique'>En pratique</a></li>
             <li style={{borderBottom:`${history.pathname === "/ateliers" ? "2px solid white" : "none"}`}}><a href='/ateliers'>Ateliers</a></li>
             <li style={{borderBottom:`${history.pathname === "/infos" ? "2px solid white" : "none"}`}}><a href='/infos'>Infos & contact</a></li> 

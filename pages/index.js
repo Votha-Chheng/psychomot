@@ -50,8 +50,7 @@ export default function Home() {
             <div className="menu-container" 
               data-scroll 
               data-scroll-sticky 
-              data-scroll-target=".containerRef"
-            >
+              data-scroll-target=".containerRef">
               <nav>
                 <Menu color="white" backgroundColor={`${(menuViolet ) ?"#9f7f92" : (!menuViolet && menuBleu) ? "#28536b": cellScreen ? "#9f7f92" : "transparent"}`} />
               </nav>

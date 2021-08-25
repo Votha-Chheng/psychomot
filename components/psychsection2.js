@@ -81,7 +81,6 @@ const SectionWrapper = styled.section`
     white-space:nowrap;
     -webkit-text-stroke : 4px whitesmoke;
     transform : translateY(100%);
-    //overflow: hidden;
 
     .trait{
       transform : translateX(-150%);

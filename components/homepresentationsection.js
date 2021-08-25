@@ -42,9 +42,20 @@ const HomePresentationSection = ({sectionInView}) => {
     <SectionWrapper style={{backgroundColor:`${baliseEnd ? "#9f7f92" : sectionInView ? "#28536b" : "white"}`}}>
       <div id='box' ref={box}>
         <div data-scroll data-scroll-sticky data-scroll-target="#box" style={{position:"absolute"}}>
-          <h2 className="title-h2-side title-first hidden-width-960" style={{ opacity:`${ baliseEnd ? "0" : quiSuisJeInView ? "1":specificityInView ? "0" : "0"}`}}>{listSideTitle[0]}</h2>
-          <h2 className="title-h2-side title-second hidden-width-960" style={{opacity:`${baliseEnd ? "0" : (boxWidth<985) ? "1" : parcoursInView ? "0": (quiSuisJeInView && specificityInView)? "0" : specificityInView ? "1":  "0"}`}}>{listSideTitle[1]}</h2>
-          <h2 className="title-h2-side title-third hidden-width-960" style={{opacity:`${baliseEnd ? "0" : (boxWidth<985) || parcoursInView ? "1":"0"}`}}>{listSideTitle[2]}</h2>
+          <h2 
+            className="title-h2-side title-first hidden-width-960" 
+            style={{ opacity:`${ baliseEnd ? "0" : quiSuisJeInView ? "1":specificityInView ? "0" : "0"}`}}>
+            {listSideTitle[0]}
+          </h2>
+          <h2 
+            className="title-h2-side title-second hidden-width-960" 
+            style={{opacity:`${baliseEnd ? "0" : (boxWidth<985) ? "1" : parcoursInView ? "0": (quiSuisJeInView && specificityInView)? "0" : specificityInView ? "1":  "0"}`}}>{listSideTitle[1]}
+          </h2>
+          <h2 
+            className="title-h2-side title-third hidden-width-960" 
+            style={{opacity:`${baliseEnd ? "0" : (boxWidth<985) || parcoursInView ? "1":"0"}`}}>
+              {listSideTitle[2]}
+            </h2>
         </div>
 
         <InView as='div' onChange={(inView)=>setQuiSuisJeInView(inView)}>
@@ -69,7 +80,12 @@ const HomePresentationSection = ({sectionInView}) => {
         </InView>
 
       </div>
-      <InView className='balise-fin' as='div' threshold="1" onChange={(inView, entry)=>setBaliseEnd(inView)} style={{position : "absolute", bottom:"-25px", width :"10vh", height:"10px", backgroundColor:'transparent'}} >  
+      <InView 
+        className='balise-fin' 
+        as='div' 
+        threshold="1" 
+        onChange={(inView, entry)=>setBaliseEnd(inView)} 
+        style={{position : "absolute", bottom:"-25px", width :"10vh", height:"10px", backgroundColor:'transparent'}}>  
       </InView>     
     </SectionWrapper>
   )

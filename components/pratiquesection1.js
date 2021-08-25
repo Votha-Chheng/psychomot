@@ -333,13 +333,9 @@ const Wrapper = styled.div`
         text-align: right;
         font-size : clamp(2.2rem, 3.5vw, 3.5rem);
         letter-spacing: 0.2px;
-        //font-family: 'Marck Script', cursive;
         font-family: 'Oxygen', serif;
         margin-top : 0px;
-        //margin-bottom : 150px;
         font-weight : bold;
-        //opacity : 0;
-        //transform : translateY(100%);
         transition : transform 2s ease-out, opacity 0.5s ease-out ;
         color : #745869;
         text-shadow : 0px 3px 5px #cccccc;

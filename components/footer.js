@@ -35,24 +35,40 @@ const Footer = ({color}) => {
         </h2>
         <h3 style={{fontSize:"1.3rem"}}>Pour tout renseignement complémentaire ou demande de devis, n'hésitez pas :</h3>
         <InView as="div" className={`${cardInView ? 'card-contact in-view':'card-contact'}`} onChange={(inView)=>setCardInview(inView)}>
-          <div className='telephone'>
-            <a href="tel:0644851800"><img src='/images/telephone-svgrepo-com.svg' alt='telephone icone' width="30vw" style={{transform:'translateY(3px)'}}/>
-              <span style={{fontSize:"2.2vh"}}>&nbsp; 06 44 85 18 00</span>
+          <div className='adresse-icone'> 
+            <img src='/images/telephone-svgrepo-com.svg' alt='telephone icone' width="30vw"/>
+            <a href="tel:0644851800">
+              <div className="info-content">06 44 85 18 00</div>
             </a>
           </div>
-          <div className='message'>
-            <img src='/images/email-svgrepo-com.svg' alt="envoyer un e-mail" width='30vw' style={{transform:'translateY(5px)'}}/>
-            <a href='mailto:stella.betry@gmail.com'><span style={{fontSize:"2.2vh"}}>&nbsp; Me contacter par e-mail.</span></a>
+          <div className='adresse-icone'>
+            <img src='/images/email-svgrepo-com.svg' alt="envoyer un e-mail" width='30vw'/>
+            <a href='mailto:stella.betry@gmail.com'>
+              <div className="info-content">Me contacter par e-mail.</div>
+            </a>
           </div>
-          <div className='accessibility'>
-            <i className="fas fa-wheelchair fa-2x handicap" style={{transform:'translateY(-5px)'}}/><span style={{fontSize:"2.2vh"}}>Le cabinet est accessible aux personnes à mobilité réduite (PMR).</span>
+          <div className='adresse-icone'>
+            <i className="fas fa-wheelchair fa-2x handicap"/>
+            <div className="info-content">Le cabinet est accessible aux personnes à mobilité réduite (PMR).</div>
           </div>
           
           <div className='adresse-icone'>
-            <i className="fas fa-map-marked-alt fa-2x adresse" style={{transform:'translateX(-5px)', marginRight:"5px", }}/>
-            <span><a href="https://www.google.com/maps/place/Espace+param%C3%A9dical+du+Devenson+Alpilles+Mouries+Kinesitherapeute+13/@43.693547,4.854739,15z/data=!4m2!3m1!1s0x0:0xab1fec3575c9db61?sa=X&ved=2ahUKEwi9oMbBwMnxAhUHmRQKHcehC5wQ_BIwC3oECDsQBQ" target='_blank'>Espace paramédical du Devenson<br/>
-            <em>Route de Maussane D17<br/>
-            13890 Mouriès &nbsp;</em></a></span>
+            <i className="fas fa-map-marked-alt fa-2x" style={{transform:"scale(0.95)"}} />
+            <a href="https://www.google.com/maps/place/Espace+param%C3%A9dical+du+Devenson+Alpilles+Mouries+Kinesitherapeute+13/@43.693547,4.854739,15z/data=!4m2!3m1!1s0x0:0xab1fec3575c9db61?sa=X&ved=2ahUKEwi9oMbBwMnxAhUHmRQKHcehC5wQ_BIwC3oECDsQBQ" target='_blank'>
+              <div className="info-content lieu">
+                  Espace paramédical du Devenson<br/>
+                  <em>Route de Maussane D17<br/>
+                  13890 Mouriès &nbsp;</em>
+              </div>
+            </a>
+          </div>
+          <div className='adresse-icone'>
+            <i className="fab fa-facebook-square fa-2x"></i>
+            <a href="https://www.facebook.com/Estelle-B%C3%A9try-psychomotricienne-DE-1239785506170546" target='_blank'>
+              <div className="info-content" style={{marginTop:"5px"}}>
+                Suivez mon actualité sur ma page.
+              </div>
+            </a>
           </div>
         </InView> 
       </div>
@@ -116,17 +132,22 @@ const DivWrapper = styled.div`
       transition : transform 0.8s ease-out, opacity 1s ease-out;
       opacity : 0;
     }
-    .telephone, .message, .adresse-icone, .accessibility{
+    .adresse-icone{
+      display : flex;
       margin :15px 25px;
       font-weight : bold;
       color : #967388;
-    }
-    .message span{
-      cursor: pointer;
-    }
-    .adresse-icone{       
-      display:none;
 
+      i, img{
+        margin-right: 10px;
+      }
+      .info-content.lieu{
+        margin-left: -5px;
+      }
+      .info-content{
+        align-self: center;
+        font-size : 1.2rem;
+      }     
       a:hover, a:focus{
         filter : brightness(125%) !important;
         text-decoration : underline;
@@ -134,17 +155,10 @@ const DivWrapper = styled.div`
       i{
         color: #745869;
       }
-      span{
-        font-size : 2.2vh;
-      }
     }
-    .accessibility{
-      display : flex;
-      i{
-        margin-right : 10px;
-        color: #745869;
-      }
-    }
+    /* .message span{
+      cursor: pointer;
+    } */
   }
 
   
@@ -198,7 +212,7 @@ const DivWrapper = styled.div`
     .banner-adresse{
       display : none;
     }
-    .adresse-icone{
+    .adresse-icone.adresse{
       display :flex !important;
     }
   }

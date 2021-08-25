@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import { useEffect, useState } from 'react'
 import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }) {
@@ -9,7 +8,12 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <meta charSet="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1"/>
-        <meta name="description" content="Estelle Bétry, psychomotricienne libérale à Mouriès (13)"/>
+        <meta name="description" content="Estelle Bétry, psychomotricienne diplômé dans les Alpilles. Cabinet libéral, atelier Barkley de guidance parentale, atelier relaxation, espace du Devenson."/>
+        <meta property="og:title" content="Estelle Bétry, psychomotricienne libérale à Mouriès (13) Bouches-du-Rhône" />
+        <meta property="og:image" content="https://zupimages.net/up/21/34/cg2g.jpg"/>
+        <meta property="og:image:type" content="image/jpg"/>
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="fr" />
         <link rel="icon" href="/logopsy.svg" />
         <link rel="preconnect" href="https://fonts.gstatic.com"/>
         <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet"></link>
@@ -32,10 +36,8 @@ function MyApp({ Component, pageProps }) {
       <main data-scroll-container className='container'>
         {
           <Component {...pageProps} />
-        }
-        
-      </main>
-      
+        }  
+      </main> 
     </>
   )
 }

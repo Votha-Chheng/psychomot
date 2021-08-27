@@ -58,7 +58,7 @@ const Footer = ({color}) => {
             <div className="info-content">Le cabinet est accessible aux personnes à mobilité réduite (PMR).</div>
           </div>
           
-          <div className='adresse-icone'>
+          <div className='adresse-icone maps'>
             <i className="fas fa-map-marked-alt fa-2x" style={{transform:"scale(0.95)"}} />
             <a href="https://www.google.com/maps/place/Espace+param%C3%A9dical+du+Devenson+Alpilles+Mouries+Kinesitherapeute+13/@43.693547,4.854739,15z/data=!4m2!3m1!1s0x0:0xab1fec3575c9db61?sa=X&ved=2ahUKEwi9oMbBwMnxAhUHmRQKHcehC5wQ_BIwC3oECDsQBQ" target='_blank'>
               <div className="info-content lieu">
@@ -70,7 +70,7 @@ const Footer = ({color}) => {
           </div>
           <div className='adresse-icone'>
             <i className="fab fa-facebook-square fa-2x"></i>
-            <a href="https://www.facebook.com/Estelle-B%C3%A9try-psychomotricienne-DE-1239785506170546" target='_blank'>
+            <a href="https://www.facebook.com/profile.php?id=100071951477898" target='_blank'>
               <div className="info-content" style={{marginTop:"5px"}}>
                 Suivez mon actualité sur ma page.
               </div>
@@ -137,6 +137,9 @@ const DivWrapper = styled.div`
       transform : translateY(50%);
       transition : transform 0.8s ease-out, opacity 1s ease-out;
       opacity : 0;
+    }
+    .adresse-icone.maps{
+      display : none;
     }
     .adresse-icone{
       display : flex;

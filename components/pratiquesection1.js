@@ -192,7 +192,7 @@ const PratiqueSection1 = ({backgroundColor}) => {
           <div className="reponse reponse-2">
             <div className="conteneur-reponse">
               <p>
-                Ce bilan débute par un entretien qui permet de retracer <b>l’histoire de vie de la personne et de mieux com&shy;prendre son fonction&shy;nement dans son environ&shy;ne&shy;ment</b>. Dans un second temps, des tests standar&shy;disés cou&shy;plés à une observation clinique  per&shy;met&shy;tent d’orien&shy;ter le  diagnostic psycho&shy;mo&shy;teur, d’ob&shy;server la rela&shy;tion à l’autre, les fonctions psycho&shy;mo&shy;trices pré&shy;servées et cel&shy;les qui sont entra&shy;vées par des dif&shy;ficultés.
+                Ce bilan débute par un entretien qui permet de retracer <b>l’histoire de vie de la personne et de mieux com&shy;prendre son fonction&shy;nement dans son environ&shy;ne&shy;ment</b>. Dans un second temps, des tests standar&shy;disés cou&shy;plés à une observation clinique  per&shy;met&shy;ttront d’orien&shy;ter le diagnostic psycho&shy;mo&shy;teur, d’ob&shy;server la rela&shy;tion à l’autre, les fonctions psycho&shy;mo&shy;trices pré&shy;servées et cel&shy;les qui sont entra&shy;vées par des dif&shy;ficultés.
               </p>
               <p>
                 Enfin, <b>une restitution</b> est faite au patient (et aux parents lorsqu’il s’a&shy;git d’un enfant). Des bilans com&shy;plé&shy;men&shy;taires (or&shy;tho&shy;phonique, orthop&shy;tique, etc.) peu&shy;vent parfois être né&shy;ces&shy;saires pour compléter les ob&shy;ser&shy;vations. <b>Il est à noter qu'une ré&shy;orienta&shy;tion vers un autre profes&shy;sion&shy;nel est égale&shy;ment possible.</b>

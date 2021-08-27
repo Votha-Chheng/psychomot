@@ -203,19 +203,19 @@ const AtelierBarkley = () => {
                 <div className="reponse" style={{maxHeight:`${showReponse==="5"? reponseHeight5 + "px": "0px"}`, overflow:"hidden"}}>
                   <div ref={reponse5} style={{display:"flex", flexDirection:"column", alignItems:"start", marginLeft : "20px"}}>
                     <div className="names-flexbox">
-                      <div style={{marginRight:"30px"}}>
+                      <div className="name-sandie" style={{marginRight:"30px"}}>
                         <em><b>Estelle Bétry</b></em>
                         <br/>(psychomotricienne)
                         <br/>
-                        <i className="fas fa-phone" style={{marginRight:"10px", fontStyle:"normal", color : "#28536b", fontWeight:'100'}}/>
+                        <i className="fas fa-phone"/>
                         <a href="tel:0644851800">06 44 85 18 00</a>
                       </div>
                       <div className="name-sandie">
                         <em><b>Sandie Chambardon</b></em>
                         <br/>(psychologue spécialisée en neuropsychologie)
                         <br/>
-                        <i className="fas fa-phone" style={{marginRight:"10px"}} />
-                        <a href="tel:0601152203" style={{fontStyle:"normal", color : "#28536b", fontWeight:'100'}}>06 01 15 22 03</a>
+                        <i className="fas fa-phone" />
+                        <a href="tel:0601152203">06 01 15 22 03</a>
                       </div>
                     </div>
                     <div style={{textAlign:"left", display:"flex"}}>
@@ -281,6 +281,12 @@ const SectionWrap = styled.section`
 
     .name-sandie{
       margin-left:30px;
+
+      a{
+        font-style:normal;
+        color : #28536b; 
+        font-weight:100;
+      }
     }
   }
 

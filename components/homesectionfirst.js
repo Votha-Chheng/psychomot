@@ -113,7 +113,7 @@ const HomeSectionFirst = ({backgroundColor}) => {
         <div className={`losange-violet-4 ${inView ? "losange-in-view-4" : ""}`} />
       </div> 
       <div className="text-step texte-1" style={{top : `${stepOnePosition.top - 15}px`, left : `${stepOnePosition.left+190}px`}}>
-        <b>Durant ce 1er contact téléphonique,</b> vous me préciserez vos demandes (qui est le patient concerné, si un(e) enseignant(e) vous a orienté vers une consultation psychomoteur, le trouble concerné, etc.). Nous pourrons dès lors fixer un 1er rendez-vous. 
+        <b>Durant ce 1er contact téléphonique,</b> vous me préciserez vos demandes (qui est le patient concerné, si un(e) enseignant(e) vous a orienté vers une consultation en psychomotricité, le trouble concerné, etc.). Nous pourrons dès lors fixer un 1er rendez-vous. 
       </div>
       <h3 className="h3Second" style={{position:'absolute', width:'300px', top : `${stepTwoPosition.top-20}px`, left : `${stepTwoPosition.left-300}px`}}>
         Le premier entretien au cabinet de psychomotricité

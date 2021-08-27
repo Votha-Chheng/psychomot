@@ -218,7 +218,7 @@ const DivWrapper = styled.div`
     .banner-adresse{
       display : none;
     }
-    .adresse-icone.adresse{
+    .adresse-icone.maps{
       display :flex !important;
     }
   }

@@ -188,7 +188,7 @@ const infosPage = () => {
                 <h3 className='sub-title third'>Remboursement des soins</h3>
                   <div className="texte-tarif mutuelle">
                     <p>
-                      <b>Les soins psychomoteurs ne sont pas remboursés par la sécurité sociale</b> mais vous pouvez vous ren&shy;seigner auprès de <b>votre mutuelle qui peut prendre en charge quelques séan&shy;ces</b>(comme MGEN, AG2R, etc.).
+                      <b>Les soins psychomoteurs ne sont pas remboursés par la sécurité sociale</b> mais vous pouvez vous ren&shy;seigner auprès de <b>votre mutuelle qui peut prendre en charge quelques séan&shy;ces</b> (comme MGEN, AG2R, etc.).
                     </p>
                     <p>
                       La <a href="http://www.mdph13.fr" target="_blank">MDPH des Bouches-du-Rhône</a> peut allouer une allocation (AEEH, AAH) en fonction de certains cri&shy;tères. Vous pouvez vous renseigner auprès du CCAS de votre ville pour avoir une aide à la constitution d’un dossier.

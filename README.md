@@ -1,3 +1,2 @@
 -->Taille image à 125vh
--->Enlever points d'interrogation ?
 -->Animation du trait à Bilan psy

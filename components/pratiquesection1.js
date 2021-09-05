@@ -25,9 +25,9 @@ const PratiqueSection1 = ({backgroundColor}) => {
   },[titleWidth, size])
 
   useEffect(() => {
-    gsap.to(trait.current, {
+    gsap.to('.trait', {
       x: 0,
-      duration: 1.4,
+      duration: 1.2,
       delay : 0.5
     })
 
@@ -152,7 +152,7 @@ const PratiqueSection1 = ({backgroundColor}) => {
           Le bilan psychomoteur
         </h2>  
       </div>
-      <div className="trait" ref={trait} style={{margin : "50px 0 0px 0", position:"static"}}>
+      <div className="trait" ref={trait}>
         <Trait width={titleWidth} bgColor="#326886" height="8px"/>
       </div>
       
@@ -239,6 +239,11 @@ const PratiqueSection1 = ({backgroundColor}) => {
 const Wrapper = styled.div`
   margin-top: 60px;
 
+  .trait{
+    transform : translateX(-100%);
+    position:static
+  }
+
   .question-1, .question-2, .question-3, .question-4, .question-5{
     transform: translateX(-50%);
     opacity: 0;
@@ -283,11 +288,6 @@ const Wrapper = styled.div`
       color: transparent;
       opacity: 0;
       transform: translateY(30%)
-    }
-
-    .trait{
-      transform : translateX(-110%);
-      z-index: -1;
     }
   }
 

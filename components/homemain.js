@@ -155,12 +155,11 @@ const HomeMain = () => {
         <div className='card-flip enfant' ref={cardFlipEnfant}>
           <div className={`card-container ${flipEnfant ? "flip back" : "front"}`}>
             <div className="recto">
-
               <img 
                 src="/images/20210422_144500.jpg" 
                 alt='cabinet de psychomotricité Alpilles, Bouches-du-Rhône' 
                 style={{top:(positionFlipEnfant.top)*(-1), left:`${(positionFlipEnfant.left-25)*(-1)}px`, backfaceVisibility : "hidden"}}/>
-              <h2 ref={question2}>...chez l'enfant ?</h2>
+              <h2 ref={question2}>...chez l'enfant</h2>
               <i ref={icon2} className="fas fa-arrow-circle-right fa-3x" style={{cursor:'pointer'}} onClick={()=>setFlipEnfant(prev=> !prev)}></i>
             </div>
             <div className="verso">
@@ -184,7 +183,7 @@ const HomeMain = () => {
           <div className={`card-container ${flipAdulte ? "flip back" : "front"}`}>
             <div className="recto">
               <img src="/images/20210422_144500.jpg" alt='bg' style={{top:(positionFlipAdulte.top)*-1, left:`${(positionFlipAdulte.left-25)*-1}px`, backfaceVisibility : "hidden"}}/>
-              <h2 ref={question3}>...chez l'adulte ?</h2>
+              <h2 ref={question3}>...chez l'adulte</h2>
               <i ref={icon3} className="fas fa-arrow-circle-right fa-3x" style={{cursor:'pointer'}} onClick={()=>setFlipAdulte(prev=> !prev)}></i>
             </div>
             <div className={`verso`} style={{zIndex : '10'}}>
@@ -211,7 +210,7 @@ const HomeMain = () => {
 }
 
 const WrapperSection = styled.section`
-  height: 200vh;
+  height: 150vh;
   width: 100%;
   position: relative;
   overflow: hidden;
@@ -236,17 +235,18 @@ const WrapperSection = styled.section`
     left: 0;
 
     img{
-      height: 200vh;
+      height: 150vh;
       transform: translateX(-125px);
       filter : brightness(65%) blur(5px)
     }
   }
 
   //Elements
+
   .question {
     position : absolute;
     left : 50%;
-    top : 85vh;
+    top : 50vh;
     color: whitesmoke;
     transform: translateX(-50%);
     text-align: center;
@@ -257,8 +257,6 @@ const WrapperSection = styled.section`
       letter-spacing: 1.5px;
       font-size: clamp(2rem, 5vw, 3.5rem);
       text-shadow : 0px 3px 5px black;
-      margin-top : -10%;
-      margin-bottom : 15px; 
       z-index:2;
       background-color : transparent;
       opacity : 0;
@@ -284,7 +282,7 @@ const WrapperSection = styled.section`
     left : 64%;
   }
   .card-flip{
-    top : 85vh;
+    top : 70vh;
     position : absolute;
     width : 320px;
     height : 47vh;
@@ -331,7 +329,7 @@ const WrapperSection = styled.section`
         }
         img{
           position : absolute;
-          height: 200vh;
+          height: 150vh;
           filter : brightness(64%) blur(5px);
           z-index : -1;
         }
@@ -496,16 +494,22 @@ const WrapperSection = styled.section`
   
 @media (max-width: 840px){
   .card-flip.enfant{
-    top :70vh;
+    top :60vh;
     left : 175px;
   }
   .card-flip.adulte{
     left : auto;
     right :-150px;
-    top :70vh;
+    top :60vh;
   }
   .question{
-    top : 60vh;
+    top : 35vh;
+  }
+  .banner-container{
+    top:10vh;
+  }
+  .wall-menu{
+    margin-top: 25px !important;
   }
 }
 
@@ -516,6 +520,10 @@ const WrapperSection = styled.section`
 }
 
 @media (max-width: 675px){
+  height: 200vh;
+  img{
+    height: 200vh !important;
+  }
   .hidden-width-675{
     display : none;
   }
@@ -524,10 +532,10 @@ const WrapperSection = styled.section`
     left : 50vw !important;
   }
   .card-flip.enfant{
-    top:325px;
+    top:330px;
   }
   .card-flip.adulte{
-    top:635px;
+    top:640px;
   }
   .banner-container{
     top : 7.5vh;
@@ -548,7 +556,7 @@ const WrapperSection = styled.section`
   }
   .question{
     width : 100%;
-    top : 275px;
+    top : 200px !important;
 
     h2{
       width : 100%;

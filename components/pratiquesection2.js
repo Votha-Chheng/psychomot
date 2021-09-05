@@ -28,9 +28,9 @@ const PratiqueSection2 = ({partTwoInview, backgroundColor}) => {
       })
       gsap.to(".section-title-tech", {
         y: 0,
-        duration: 1,
+        duration: 0.75,
         opacity: 1,
-        delay : 0.5
+        delay : 0.1
       })
     }
     

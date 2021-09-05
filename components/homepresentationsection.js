@@ -166,24 +166,45 @@ const SectionWrapper = styled.section`
   .rotation-card-container{
     margin: 300px auto 0px!important;
   }
+  .bandeau.up, .bandeau.down{
+    margin-right: 500vw !important;
+    animation: slideToLeft 60s infinite linear;
+  }
+  .bandeau.up{
+    margin-top:250px;
+  }
+  .bandeau.down{
+    animation: slideToRight 60s infinite linear;
+    margin-bottom:250px;
+  }
 }
 
 
 @media (max-width:769px){
   .bandeau{
-    width: 840% !important;
+    width: 800vh !important;
   }
   .bandeau.up{
     margin-top:250px;
-    margin-right: 500vw !important;
+    margin-right: 200vw !important;
     animation: slideToLeft 60s infinite linear;
   }
   .bandeau.down{
     margin-bottom:250px;
-    margin-left: -500vw;
+    margin-left: -200vw;
     animation: slideToRight 60s infinite linear;
   }
-  @keyframes slideToLeft{
+}
+
+@media (max-width:520px){
+  .rotation-card-container{
+    margin-top: 150px !important;
+    height: 1550px;
+  }
+  
+}
+
+@keyframes slideToLeft{
     from {
       transform: translateX(15%)
     }
@@ -199,17 +220,6 @@ const SectionWrapper = styled.section`
       transform: translateX(100%)
     }
   }
-}
-
-@media (max-width:520px){
-  .rotation-card-container{
-    margin-top: 150px !important;
-    height: 1550px;
-  }
-  
-}
-
-
 ` 
 
 export default HomePresentationSection;

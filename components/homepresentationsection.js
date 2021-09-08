@@ -182,17 +182,17 @@ const SectionWrapper = styled.section`
 
 @media (max-width:769px){
   .bandeau{
-    width: 800vh !important;
+    width: 900vh !important;
   }
   .bandeau.up{
     margin-top:250px;
-    margin-right: 200vw !important;
-    animation: slideToLeft 60s infinite linear;
+    margin-right: 100vw !important;
+    animation: slideToLeft 90s infinite linear;
   }
   .bandeau.down{
     margin-bottom:250px;
-    margin-left: -200vw;
-    animation: slideToRight 60s infinite linear;
+    margin-left: -800vw;
+    animation: slideToRight 90s infinite linear;
   }
 }
 

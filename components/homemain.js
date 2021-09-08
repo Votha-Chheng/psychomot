@@ -111,15 +111,15 @@ const HomeMain = () => {
 
   useEffect(()=>{
     if(cardFlipAdulte.current){
-      setPositionFlipAdulte({top : cardFlipAdulte.current.offsetTop, left : cardFlipAdulte.current.offsetLeft})
+      setPositionFlipAdulte({top : cardFlipAdulte.current.offsetTop, left : cardFlipAdulte.current.getBoundingClientRect().left})
     }
   }, [size])
 
+  console.log(cardFlipAdulte.current && (cardFlipAdulte.current.getBoundingClientRect().top))
+  //console.log(cardFlipAdulte.current && (cardFlipAdulte.current.offsetLeft ))
+
   return (
     <WrapperSection >      
-      <div id='banner' className="banner" ref={banner}>
-        <img src="/images/20210422_144500.jpg"/>
-      </div>
         
       <div className="banner-container">
         <div className='wall-menu' ref={wallMenu}>
@@ -154,11 +154,11 @@ const HomeMain = () => {
       <section className="cards-part">
         <div className='card-flip enfant' ref={cardFlipEnfant}>
           <div className={`card-container ${flipEnfant ? "flip back" : "front"}`}>
-            <div className="recto">
-              <img 
+            <div className="recto" style={{backgroundPosition:`-${positionFlipEnfant.left-160}px -${positionFlipEnfant.top}px`}}>
+              {/* <img 
                 src="/images/20210422_144500.jpg" 
                 alt='cabinet de psychomotricité Alpilles, Bouches-du-Rhône' 
-                style={{top:(positionFlipEnfant.top)*(-1), left:`${(positionFlipEnfant.left-25)*(-1)}px`, backfaceVisibility : "hidden"}}/>
+                style={{top:(positionFlipEnfant.top)*(-1), left:`${(positionFlipEnfant.left-25)*(-1)}px`, backfaceVisibility : "hidden"}}/> */}
               <h2 ref={question2}>...chez l'enfant</h2>
               <i ref={icon2} className="fas fa-arrow-circle-right fa-3x" style={{cursor:'pointer'}} onClick={()=>setFlipEnfant(prev=> !prev)}></i>
             </div>
@@ -181,8 +181,9 @@ const HomeMain = () => {
         </div>
         <div className='card-flip adulte' ref={cardFlipAdulte}>
           <div className={`card-container ${flipAdulte ? "flip back" : "front"}`}>
-            <div className="recto">
-              <img src="/images/20210422_144500.jpg" alt='bg' style={{top:(positionFlipAdulte.top)*-1, left:`${(positionFlipAdulte.left-25)*-1}px`, backfaceVisibility : "hidden"}}/>
+            <div 
+              className="recto" 
+              style={{backgroundPosition:`${-positionFlipAdulte.left}px ${-positionFlipAdulte.top}px`}}>
               <h2 ref={question3}>...chez l'adulte</h2>
               <i ref={icon3} className="fas fa-arrow-circle-right fa-3x" style={{cursor:'pointer'}} onClick={()=>setFlipAdulte(prev=> !prev)}></i>
             </div>
@@ -200,7 +201,10 @@ const HomeMain = () => {
               <div className='button'>
                 <a href="/psychomotricite/#troubles-adulte" >En savoir plus</a>
               </div> 
-              <i className={`fas fa-arrow-circle-left fa-2x ${flipAdulte ? "front" : "back"}`} style={{cursor:'pointer', zIndex:'10'}} onClick={()=>setFlipAdulte(prev=> !prev)}/>
+              <i 
+                className={`fas fa-arrow-circle-left fa-2x ${flipAdulte ? "front" : "back"}`} 
+                style={{cursor:'pointer', zIndex:'10'}} 
+                onClick={()=>setFlipAdulte(prev=> !prev)}/>
             </div>
           </div> 
         </div>
@@ -215,6 +219,9 @@ const WrapperSection = styled.section`
   position: relative;
   overflow: hidden;
   background-color : white;
+  background-image: url(/images/20210422_144500flou.jpg);
+  background-position: 0px 0px;
+  background-size: auto 150vh;
 
   &::after {
     height : 8vh;
@@ -305,9 +312,12 @@ const WrapperSection = styled.section`
         width : 100%;
         height : 100%;
         border-radius : 10px;
+        
       }
       .recto {
         text-align : center;
+        background-image: url(/images/20210422_144500flou.jpg);
+        background-size: auto 150vh;
 
         h2, i{
           z-index : 3;
@@ -484,10 +494,12 @@ const WrapperSection = styled.section`
 @media (max-width: 1200px){
   .card-flip.enfant{
     left : 25%;
+    height : 450px;
   }
   .card-flip.adulte{
     left : auto;
     right :-5%;
+    height : 450px;
   }
 }
 
@@ -521,9 +533,12 @@ const WrapperSection = styled.section`
 
 @media (max-width: 675px){
   height: 200vh;
-  img{
-    height: 200vh !important;
+  background-size: auto 200vh;
+
+  .recto{
+    background-size: auto 200vh !important;
   }
+
   .hidden-width-675{
     display : none;
   }
@@ -533,9 +548,11 @@ const WrapperSection = styled.section`
   }
   .card-flip.enfant{
     top:330px;
+    height : 300px;
   }
   .card-flip.adulte{
     top:640px;
+    height : 300px;
   }
   .banner-container{
     top : 7.5vh;

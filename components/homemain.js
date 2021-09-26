@@ -215,7 +215,7 @@ const HomeMain = () => {
 
 const WrapperSection = styled.section`
   height: 150vh;
-  max-height: 1300px;
+  max-height: 1297px;
   width: 100%;
   position: relative;
   overflow: hidden;

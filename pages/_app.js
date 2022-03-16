@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import '../styles/globals.css'
+import Menu from "../components/menu"
 
 function MyApp({ Component, pageProps }) {
 
@@ -34,9 +35,7 @@ function MyApp({ Component, pageProps }) {
       </Head>
 
       <main data-scroll-container className='container'>
-        {
-          <Component {...pageProps} />
-        }  
+        <Component {...pageProps} />      
       </main> 
     </>
   )

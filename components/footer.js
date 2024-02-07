@@ -49,7 +49,7 @@ const Footer = ({color}) => {
           </div>
           <div className='adresse-icone'>
             <img src='/images/email-svgrepo-com.svg' alt="envoyer un e-mail" width='30vw'/>
-            <a href='mailto:stella.betry@gmail.com'>
+            <a href='mailto:betry.estelle@gmail.com'>
               <div className="info-content">Me contacter par e-mail.</div>
             </a>
           </div>
